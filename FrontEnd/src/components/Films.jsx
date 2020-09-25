@@ -34,6 +34,9 @@ function Films() {
   const [yourRatingsOnCurentPage, setYourRatingsOnCurentPage] = useState("");
   const [backendResponse, setBackendResponse] = useState("");
 
+  const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
+
   //the old pageStateFromRedux you can delete the redux actions and store if no more future pages will use mypagination
   //curentlly people watchlater and reviews  section still use it
   //const page = useSelector((state) => state.pageStateFromRedux);
@@ -63,7 +66,7 @@ function Films() {
     if (rating !== "" && movieId2 !== "") {
       axios({
         method: "post",
-        url: "http://localhost:5000/saverating",
+        url: `${prod_uri}/saverating`,
         data: {
           movieId: movieId2,
           rating: rating,
@@ -103,7 +106,7 @@ function Films() {
       const token = localStorage.getItem("authToken");
       axios({
         method: "post",
-        url: "http://localhost:5000/getratings",
+        url: `${prod_uri}/getratings`,
         data: {
           curentPageMoviesID: curentPageMoviesID,
         },
@@ -122,7 +125,7 @@ function Films() {
       token !== "" &&
         axios({
           method: "post",
-          url: "http://localhost:5000/getyourratings",
+          url: `${prod_uri}/getyourratings`,
           data: {
             curentPageMoviesID: curentPageMoviesID,
           },
@@ -177,7 +180,7 @@ function Films() {
     const token = localStorage.getItem("authToken");
     axios({
       method: "post",
-      url: "http://localhost:5000/watchlater",
+      url: `${prod_uri}/watchlater`,
       data: {
         movieId: value,
       },
@@ -209,7 +212,7 @@ function Films() {
   useEffect(() => {
     if (filter && filter.lower_than_release_date !== "0") {
       axios
-        .post("http://localhost:5000/films", {
+        .post(`${prod_uri}/films`, {
           pagina: pageState.activePage,
           order: filter.order,
           year: filter.year,
