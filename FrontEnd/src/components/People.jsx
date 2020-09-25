@@ -13,6 +13,7 @@ import {
   AiOutlineBook,
 } from "react-icons/ai";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet";
 
 function People() {
   //const [allPeople, setAllPeople] = useState([]);
@@ -66,6 +67,10 @@ function People() {
 
   return (
     <div className="people rm">
+      <Helmet>
+        <title>TapeSnippets - Discover new like minded individuals</title>
+        <meta name="description" content="Find new people who like movies and like to discuss them" />
+      </Helmet>
       <br/>
       <h2 className="text-align-center rm">Our latest members</h2>
 

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import Pagination from "react-js-pagination";
 import "../css/ballon.css";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet";
 
 function Ratings() {
   const [pageState, setPageState] = useState({ activePage: 1 });
@@ -117,6 +118,10 @@ function Ratings() {
 
   return (
     <div className="rm">
+       <Helmet>
+        <title>TapeSnippets - Movie Ratings</title>
+        <meta name="description" content="Sort and filter movies by their ratings and a minimum vote count" />
+      </Helmet>
       <h1 className="text-align-center">Ratings</h1>
       <div className="minheight3 review-bg">
         <div className="text-align-center reviews-sort-bar">

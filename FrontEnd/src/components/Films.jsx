@@ -258,7 +258,7 @@ function Films() {
   return (
     <div>
       <Helmet>
-        <title>Browse movies by category or other filters and rate them</title>
+        <title>TapeSnippets - Browse movies by category or other filters and rate them</title>
         <meta name="description" content="Browse and find movies by category, with or without genre, sort them by popularity or rating, by language and much more.
         Rate movies and film and check the score on other websites. Discover a network of people and interact with them socially. Review movies and track your progress. 
         Add movies to watchlist to remind you of what to watch next." />

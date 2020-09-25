@@ -8,6 +8,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { sendMovieIdforSpecificToRedux } from "../actions";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet";
 
 function WatchLater() {
   const dispatch = useDispatch();
@@ -103,6 +104,10 @@ function WatchLater() {
     {!isLogged ? <Redirect to="/Login" /> : 
     <div className="rm">
       
+      <Helmet>
+        <title>TapeSnippets - Your WatchLater Movies List</title>
+        <meta name="description" content="Here you will find your movies that have been added to your watchlater list as a reminder to watch them later." />
+      </Helmet>
 
       <p className="text-align-center">
         You have {watchLaterList === "empty" ? 0 : watchLaterList.length} movies

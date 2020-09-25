@@ -9,6 +9,7 @@ import { sendMovieIdforSpecificToRedux } from "../actions";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet";
 
 function Reviews() {
   const dispatch = useDispatch();
@@ -187,7 +188,13 @@ function Reviews() {
 
   return (
     <> {!isLogged ? <Redirect to="/Login" /> :  null}
-      <div className="reviews-comp">
+
+      <Helmet>
+        <title>TapeSnippets - Movie Reviews</title>
+        <meta name="description" content="Read and manage movie reviews" />
+      </Helmet>
+
+      <div className="reviews-comp">     
         <br/>
         <h1>My Reviews:</h1>
         <div className="gradient-list">
