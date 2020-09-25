@@ -17,15 +17,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {  useDispatch } from "react-redux";
 import { loggedin, loggedout } from "./actions";
+import { Helmet } from "react-helmet";
 
 
 
 
 function App() {
 
-  useEffect(() => {
-    document.title = "TapeSnippets"
- }, []);
+//   useEffect(() => {
+//     document.title = "TapeSnippets"
+//  }, []);
   
   const dispatch = useDispatch();
 
@@ -44,6 +45,12 @@ function App() {
 
   return (
     <div>
+      <Helmet>
+        <title>TapeSnippets - Browse movies and write reviews or rate them</title>
+        <meta name="description" content="Browse and find movies by category, with or without genre, sort them by popularity or rating, by language and much more.
+        Rate movies and film and check the score on other websites. Discover a network of people and interact with them socially. Review movies and track your progress. 
+        Add movies to watchlist to remind you of what to watch next." />
+      </Helmet>
       {checkLogStatus()}
       <Router>
         <Navbar />

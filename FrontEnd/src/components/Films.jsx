@@ -15,7 +15,8 @@ import "../css/ballon.css";
 
 import { GiSpellBook } from "react-icons/gi";
 import Pagination from "react-js-pagination";
-import Footer from "./Footer"
+import Footer from "./Footer";
+import { Helmet } from "react-helmet";
 
 //import { sendPageToRedux } from "../actions";
 
@@ -256,6 +257,12 @@ function Films() {
 
   return (
     <div>
+      <Helmet>
+        <title>Browse movies by category or other filters and rate them</title>
+        <meta name="description" content="Browse and find movies by category, with or without genre, sort them by popularity or rating, by language and much more.
+        Rate movies and film and check the score on other websites. Discover a network of people and interact with them socially. Review movies and track your progress. 
+        Add movies to watchlist to remind you of what to watch next." />
+      </Helmet>
       <div className={"info-popup " + showHide}>
         <h2 className="popup-text">{backendResponse}</h2>
       </div>

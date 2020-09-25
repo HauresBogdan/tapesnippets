@@ -10,6 +10,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import "../css/ballon.css";
 import WhoLiked from "./WhoLiked";
 import Footer from "./Footer";
+import { Helmet } from "react-helmet";
 
 function SpecificMovie() {
   //const isLogged = useSelector((state) => state.isLogged);
@@ -327,6 +328,11 @@ function SpecificMovie() {
               alt="moviePoster"
             />
           )}
+
+      <Helmet>
+        <title>{movieData.title} Score - Write Review</title>
+        <meta name="description" content="Write movie review or read other comprehensive reviews from other people for this a particular movie" />
+      </Helmet>
 
           <ul>
             <li>
