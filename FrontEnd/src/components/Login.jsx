@@ -9,6 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Login() {
 
+  //const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
+
   
   
   const isLogged = useSelector(state => state.isLogged);
@@ -96,7 +99,7 @@ function Login() {
       //register post (create account)
       axios({
         method: "post",
-        url: "http://localhost:5000/register",
+        url: `${prod_uri}/register`,
         data: {
           name: username,
           email: email,
@@ -125,7 +128,7 @@ function Login() {
       //login user
       axios({
         method: "post",
-        url: "http://localhost:5000/login",
+        url: `${prod_uri}/login`,
         data: {
           email: email,
           password: password

@@ -6,7 +6,10 @@ import axios from "axios";
 function  WhoLiked(props) {
     //const isLogged = useSelector(state => state.isLogged);
 
-    const [usersWhoLiked,setUsersWhoLiked] = useState([])
+    const [usersWhoLiked,setUsersWhoLiked] = useState([]);
+
+    //const dev_uri = "http://localhost:5000";
+    const prod_uri = "https://tapesnippets.herokuapp.com"
 
     useEffect(() => {
         
@@ -15,7 +18,7 @@ function  WhoLiked(props) {
    
           axios({
             method: "post",
-            url: "http://localhost:5000/finduserswholikedme",
+            url: `${prod_uri}/finduserswholikedme`,
             data: {
                 usersIds: props.whoLiked,
             },

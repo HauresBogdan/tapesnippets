@@ -17,6 +17,9 @@ function WatchLater() {
   const [movieId, setMovieId] = useState("");
   const [refresher, setRefresher] = useState(true);
 
+  //const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
+
   function removeMovie(event) {
     const value = event.currentTarget.getAttribute("value");
     //console.log(value);
@@ -27,7 +30,7 @@ function WatchLater() {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:5000/watchlaterList",
+      url: `${prod_uri}/watchlaterList`,
       headers: {
         authToken: localStorage.getItem("authToken"),
       },
@@ -65,7 +68,7 @@ function WatchLater() {
       const token = localStorage.getItem("authToken");
       axios({
         method: "post",
-        url: "http://localhost:5000/watchlaterRemove",
+        url: `${prod_uri}/watchlaterRemove`,
         data: {
           movieId: movieId,
         },

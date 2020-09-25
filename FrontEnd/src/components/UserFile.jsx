@@ -21,6 +21,8 @@ function UserFile() {
     instagram: "",
   });
   const [profile, setProfile] = useState("");
+  //const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -36,7 +38,7 @@ function UserFile() {
 
     axios({
       method: "post",
-      url: "http://localhost:5000/profile",
+      url: `${prod_uri}/profile`,
       data: {
         userBio: userBio,
       },
@@ -57,7 +59,7 @@ function UserFile() {
   useEffect(() => {
     axios({
       method: "post",
-      url: "http://localhost:5000/profile",
+      url: `${prod_uri}/profile`,
       headers: {
         authToken: localStorage.getItem("authToken"),
         "Content-Type": "application/json",

@@ -38,6 +38,9 @@ function Search() {
   const [backendResponse, setBackendResponse] = useState("");
   const [showHide, setShowHide] = useState("hide");
 
+  //const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
+
   function saveToRatings(newRating) {
     const token = localStorage.getItem("authToken");
     if (token !== "") {
@@ -57,7 +60,7 @@ function Search() {
     if (rating !== "" && movieId2 !== "") {
       axios({
         method: "post",
-        url: "http://localhost:5000/saverating",
+        url: `${prod_uri}/saverating`,
         data: {
           movieId: movieId2,
           rating: rating,
@@ -100,7 +103,7 @@ function Search() {
 
       axios({
         method: "post",
-        url: "http://localhost:5000/getratings",
+        url: `${prod_uri}/getratings`,
         data: {
           curentPageMoviesID: curentPageMoviesID,
         },
@@ -120,7 +123,7 @@ function Search() {
       token !== "" &&
         axios({
           method: "post",
-          url: "http://localhost:5000/getyourratings",
+          url: `${prod_uri}/getyourratings`,
           data: {
             curentPageMoviesID: curentPageMoviesID,
           },
@@ -175,7 +178,7 @@ function Search() {
     const token = localStorage.getItem("authToken");
     axios({
       method: "post",
-      url: "http://localhost:5000/watchlater",
+      url: `${prod_uri}/watchlater`,
       data: {
         movieId: value,
       },
@@ -207,7 +210,7 @@ function Search() {
   useEffect(() => {
     if (searchTerm !== "" && filter.order !== "") {
       axios
-        .post("http://localhost:5000/searchresults", {
+        .post(`${prod_uri}/searchresults`, {
           pagina: page.activePage,
           year: filter.year,
           limba: filter.language,

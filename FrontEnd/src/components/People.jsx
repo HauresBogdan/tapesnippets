@@ -19,10 +19,13 @@ function People() {
   const [response, setResponse] = useState([]);
   const page = useSelector((state) => state.pageStateFromRedux);
 
+  //const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
+
   useEffect(() => {
     axios({
       method: "post",
-      url: "http://localhost:5000/allpeople",
+      url: `${prod_uri}/allpeople`,
       data: {
         pagina: page.activePage,
       },

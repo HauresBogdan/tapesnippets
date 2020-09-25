@@ -34,7 +34,7 @@ function Films() {
   const [yourRatingsOnCurentPage, setYourRatingsOnCurentPage] = useState("");
   const [backendResponse, setBackendResponse] = useState("");
 
-  const dev_uri = "http://localhost:5000";
+  //const dev_uri = "http://localhost:5000";
   const prod_uri = "https://tapesnippets.herokuapp.com"
 
   //the old pageStateFromRedux you can delete the redux actions and store if no more future pages will use mypagination
@@ -315,7 +315,7 @@ function Films() {
                                 value={item.id}
                                 onMouseDown={sendId}
                                 src={
-                                  "http://image.tmdb.org/t/p/w154" +
+                                  "https://image.tmdb.org/t/p/w154" +
                                   item.poster_path
                                 }
                                 alt={"moviePoster"}

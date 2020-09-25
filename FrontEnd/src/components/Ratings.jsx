@@ -21,6 +21,9 @@ function Ratings() {
   const [movieData, setMovieData] = useState("");
   const [pages, setPages] = useState(1);
 
+  //const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
+
   const ratingsCount = [
     { label: "1🙂", value: 1 },
     { label: "2😎", value: 2 },
@@ -56,7 +59,7 @@ function Ratings() {
 
     axios({
       method: "post",
-      url: "http://localhost:5000/ratings",
+      url: `${prod_uri}/ratings`,
       data: {
         descending: descending,
         minCount: minCount,
@@ -85,7 +88,7 @@ function Ratings() {
       ratings.map((item) =>
         axios({
           method: "post",
-          url: "http://localhost:5000/specificmovie",
+          url: `${prod_uri}/specificmovie`,
           data: {
             movieId: item._id,
           },

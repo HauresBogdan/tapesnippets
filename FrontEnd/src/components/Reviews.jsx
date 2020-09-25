@@ -21,12 +21,15 @@ function Reviews() {
   const [refresher, setRefresher] = useState(false);
   const isLogged = useSelector((state) => state.isLogged);
 
+  //const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
+
   useEffect(() => {
     const token = localStorage.getItem("authToken");
 
     axios({
       method: "post",
-      url: "http://localhost:5000/reviews",
+      url: `${prod_uri}/reviews`,
       data: {
         pagina: page.activePage,
       },
@@ -53,7 +56,7 @@ function Reviews() {
       allReviewsData.pageReviews.map((item) =>
         axios({
           method: "post",
-          url: "http://localhost:5000/specificmovie",
+          url: `${prod_uri}/specificmovie`,
           data: {
             movieId: item.movie_id,
           },
@@ -80,7 +83,7 @@ function Reviews() {
 
     axios({
       method: "post",
-      url: "http://localhost:5000/editreview",
+      url: `${prod_uri}/editreview`,
       data: {
         reviews_id: review_id,
         //position: position,
@@ -109,7 +112,7 @@ function Reviews() {
 
     axios({
       method: "post",
-      url: "http://localhost:5000/editreview",
+      url: `${prod_uri}/editreview`,
       data: {
         reviews_id: memoryReview_id,
         newText:
@@ -148,7 +151,7 @@ function Reviews() {
 
       axios({
         method: "post",
-        url: "http://localhost:5000/deletereview",
+        url: `${prod_uri}/deletereview`,
         data: {
           reviews_id: review_id,
           //position: position,

@@ -36,6 +36,9 @@ function SpecificMovie() {
   const [backendResponse, setBackendResponse] = useState("");
   const [showHide, setShowHide] = useState("hide");
 
+  //const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
+
 
 
   function sendCommentToBackend(event) {
@@ -57,7 +60,7 @@ function SpecificMovie() {
       const token = localStorage.getItem("authToken");
       axios({
         method: "post",
-        url: "http://localhost:5000/comments",
+        url: `${prod_uri}/comments`,
         data: {
           movieId: movieIdForSpecific,
           comment: commentToPost,
@@ -107,7 +110,7 @@ function SpecificMovie() {
 
     axios({
       method: "post",
-      url: "http://localhost:5000/postreview",
+      url: `${prod_uri}/postreview`,
       data: {
         movieId: movieIdForSpecific,
         review: movieReview,
@@ -139,7 +142,7 @@ function SpecificMovie() {
   useEffect(() => {
     axios({
       method: "post",
-      url: "http://localhost:5000/specificmovie",
+      url: `${prod_uri}/specificmovie`,
       data: {
         movieId: movieIdForSpecific,
       },
@@ -161,7 +164,7 @@ function SpecificMovie() {
   useEffect(() => {
     axios({
       method: "post",
-      url: "http://localhost:5000/specificmoviereviews",
+      url: `${prod_uri}/specificmoviereviews`,
       data: {
         movieId: movieIdForSpecific,
       },
@@ -190,7 +193,7 @@ function SpecificMovie() {
     if (movieData.imdb_id != null) {
       axios({
         method: "post",
-        url: "http://localhost:5000/scraper",
+        url: `${prod_uri}/scraper`,
         data: {
           url: `https://www.imdb.com/title/${movieData.imdb_id}/`,
         },
@@ -211,7 +214,7 @@ function SpecificMovie() {
 
     axios({
       method: "post",
-      url: "http://localhost:5000/likes",
+      url: `${prod_uri}/likes`,
       data: {
         reviews_id: value,
         comment_id: value2,
