@@ -43,7 +43,7 @@ function Search() {
 
   function saveToRatings(newRating) {
     const token = localStorage.getItem("authToken");
-    if (token !== "" || !token) {
+    if (token !== "" && token) {
       //console.log(newRating);
       setRating(newRating);
     } else {
@@ -120,7 +120,7 @@ function Search() {
         .catch((err) => {
           console.log(err);
         });
-      (token !== "" || !token) &&
+      (token !== "" && token) &&
         axios({
           method: "post",
           url: `${prod_uri}/getyourratings`,
