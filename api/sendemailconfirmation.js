@@ -2,6 +2,9 @@ const nodemailer = require('nodemailer');
 //const jwt = require('jsonwebtoken');
 
 module.exports = async function main(token,emailadress) { 
+
+  //const dev_uri = "http://localhost:5000";
+  const prod_uri = "https://tapesnippets.herokuapp.com"
     
     try {
 
@@ -29,7 +32,7 @@ module.exports = async function main(token,emailadress) {
             //send token witch has the email adress that needs confirming in verified.email adress
 
             //change this to heroku or tapesnippets.com from localhost on deplyment
-            html: `<b>Confirm your email adress by clicking here:<a href='http://localhost:5000/confirm/${token}'>TapeSnippets</a></b><br/><p>If you didn't registered to our website please ignore this message.</p>`, // html body
+            html: `<b>Confirm your email adress by clicking here:<a href='${prod_uri}/confirm/${token}'>TapeSnippets</a></b><br/><p>If you didn't registered to our website please ignore this message.</p>`, // html body
           });
         
           console.log("Message sent: %s", info.messageId);  
