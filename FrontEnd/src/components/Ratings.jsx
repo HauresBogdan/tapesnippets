@@ -168,7 +168,7 @@ function Ratings() {
                               onMouseDown={sendId}
                               className="rating-poster"
                               src={
-                                "http://image.tmdb.org/t/p/w92" +
+                                "https://image.tmdb.org/t/p/w92" +
                                 movieDataItem.poster_path
                               }
                               alt="poster"

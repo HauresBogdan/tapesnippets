@@ -313,7 +313,7 @@ function SpecificMovie() {
           {movieData.poster_path !== null ? (
             <img
               className="movie-poster-specific"
-              src={"http://image.tmdb.org/t/p/w342" + movieData.poster_path}
+              src={"https://image.tmdb.org/t/p/w342" + movieData.poster_path}
               alt="moviePoster"
             />
           ) : (
@@ -349,7 +349,7 @@ function SpecificMovie() {
                 <li>
                   Homepage:{" "}
                   <a className="homepage" href={movieData.homepage}>
-                    {movieData.homepage}
+                    Go There
                   </a>
                 </li>
                 <li>Language: {movieData.original_language}</li>
