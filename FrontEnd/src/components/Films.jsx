@@ -49,7 +49,7 @@ function Films() {
 
   function saveToRatings(newRating) {
     const token = localStorage.getItem("authToken");
-    if (token !== "") {
+    if (token !== "" || !token) {
       //console.log(newRating);
       setRating(newRating);
     } else {
@@ -57,7 +57,7 @@ function Films() {
       setTimeout(function () {
         setShowHide("hide");
       }, 1000);
-      setBackendResponse("You must be logged in to do that!");
+      setBackendResponse("You must be logged in to rate movies!");
     }
   }
 
@@ -122,7 +122,7 @@ function Films() {
         .catch((err) => {
           console.log(err);
         });
-      token !== "" &&
+      (token !== "" || !token) &&
         axios({
           method: "post",
           url: `${prod_uri}/getyourratings`,

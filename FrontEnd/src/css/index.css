@@ -182,7 +182,7 @@
 }
 
 .mycontainer2 {
-  margin: 0;
+  margin: 0 auto;
   padding-top: 0.5em;
   padding-bottom: 1em;
   /* border-bottom: 1px solid rgb(179, 178, 178); */
@@ -420,7 +420,7 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
   margin-right: 100px;
 }
 body {
-  background-color: pink;
+  background-color: white;
 }
 
 /*nevbar2*/
