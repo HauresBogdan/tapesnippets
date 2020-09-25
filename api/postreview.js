@@ -28,7 +28,7 @@ router.post("/", verifyToken, async (req, res) => {
         res.send(`Review added!`);
 
       } else {
-        res.send(`Please log into your account to add a review`);
+        res.send(`You must confirm your email adress before posting reviews (check your email)`);
       }
 
       

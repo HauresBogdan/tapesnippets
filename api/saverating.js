@@ -32,7 +32,7 @@ router.post("/", verifyToken, async (req, res) => {
       });
      } else if(user.confirmed === false) {
 
-      res.send("Pls confirm email!");
+      res.send("Pls confirm your email adress before rating movies!");
      }
 
        
