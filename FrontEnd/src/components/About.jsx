@@ -8,7 +8,7 @@ function About() {
 
     return (
 
-        <>
+        <div className="about-page">
 
         <div className="film-data">
             <br/>
@@ -50,7 +50,7 @@ function About() {
         <br/>
 <Footer />
 
-        </>
+        </div>
     );
 
 }
