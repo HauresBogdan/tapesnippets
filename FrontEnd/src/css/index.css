@@ -998,9 +998,8 @@ body {
   background-color: #ebf0f3;
   color: #1d1f20;
   font-family: 'Merriweather', serif;
-  margin : auto;
- 
-  padding: 0  2cm 1.5cm 2cm;
+  margin : auto; 
+  padding: 0;
 }
 
 
@@ -1010,8 +1009,9 @@ body {
 .individual-reviews {
   background: white;
   border-radius: 0.5rem;
-  margin-top: 1rem;
+  margin: 1rem auto;
   min-height: 3rem;
+  max-width: 800px;
   padding: 1rem;
 }
 
