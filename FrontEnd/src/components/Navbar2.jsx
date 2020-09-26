@@ -86,7 +86,7 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link className="new-links mr-4" to="/Reviews">
+          <Link className="new-links" to="/Reviews">
             Reviews
           </Link>
         </li>
@@ -97,10 +97,10 @@ function Navbar() {
         </li>*/}
 
         <li>
-          <input
+          <input 
             onKeyUp={onEnter}
             type="text"
-            className="new-searchbox begining-round-inbox-borders"
+            className="new-searchbox begining-round-inbox-borders search-input"
             placeholder=""
             value={searchTerm}
             onChange={getSearchTerm}

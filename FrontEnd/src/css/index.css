@@ -511,6 +511,15 @@ body {
   display: block;
 }
 
+@media screen and (min-width: 1310px) {
+
+  .new-searchbox {
+    margin-left: 28px;
+  }
+
+
+}
+
 
 
 @media screen and (min-width: 915px) {
@@ -556,6 +565,7 @@ body {
 }
 
 @media (max-width: 1310px) {
+  
   .new-navbar,
   .new-logo {
     font-size: 24px;
@@ -591,6 +601,8 @@ body {
   .new-navbar {
     background-color: rgba(12, 37, 54, 1);
     height:  auto;
+    padding-bottom: 1px;
+   
   }
 
 }
@@ -987,7 +999,7 @@ body {
   color: #1d1f20;
   font-family: 'Merriweather', serif;
   margin : auto;
-  max-width: 60rem;
+ 
   padding: 0  2cm 1.5cm 2cm;
 }
 
@@ -1007,6 +1019,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 16em;
 }
 
 .edit-delete {

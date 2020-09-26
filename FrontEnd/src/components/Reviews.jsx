@@ -196,7 +196,7 @@ function Reviews() {
 
       <div className="reviews-comp">     
         <br/>
-        <h1>My Reviews:</h1>
+        <h1 className="text-align-center">My Reviews:</h1>
         <div className="gradient-list">
           <div className={editShowUnshow}>
             Edit your review:
@@ -342,11 +342,11 @@ function Reviews() {
               </div>
             ))
           ) : (
-             <div>Loading...</div>
+             <div className="text-align-center">Loading...</div>
           )}
 
           {allReviewsData && allReviewsData.pageReviews.length === 0 && (
-            <div>
+            <div  className="text-align-center">
               You don't have any reviews of your own! Your reviews will apear
               here as soon as you add them.
               <br />
