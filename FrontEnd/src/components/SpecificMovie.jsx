@@ -421,8 +421,9 @@ function SpecificMovie() {
 
         <br />
 
-        <p className="answer-from-post-review">{answerFromPostReview}</p>
+        
         <div className="reviews-section">
+        <p className="answer-from-post-review">{answerFromPostReview}</p>
           <textarea
             name="review"
             placeholder="Add review..."

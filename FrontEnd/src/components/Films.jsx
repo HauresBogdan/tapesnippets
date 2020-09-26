@@ -79,14 +79,14 @@ function Films() {
         },
       })
         .then((res) => {
-          //console.log("ratingChanged on: ", res.data);
-          if (res.data === "Pls confirm email!") {
+          console.log("ratingChanged on: ", res.data);
+          if (res.data === "Pls confirm your email adress before rating movies!") {
             setShowHide("show");
             setTimeout(function () {
               setShowHide("hide");
             }, 1000);
             setBackendResponse(
-              "You must confirm your email before doing that!"
+              "Pls confirm your email adress before rating movies!"
             );
           } else if (res.data === "Success") {
             setRatingChanged(!ratingChanged);
@@ -94,6 +94,7 @@ function Films() {
         })
         .catch((err) => {
           console.log(err);
+         
         });
     }
 
