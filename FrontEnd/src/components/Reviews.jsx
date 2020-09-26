@@ -198,7 +198,7 @@ function Reviews() {
         <br/>
         <h1 className="text-align-center">My Reviews:</h1>
         <div className="gradient-list">
-          <div className={editShowUnshow}>
+          <div className={`${editShowUnshow} edit-review`}>
             Edit your review:
             <textarea
               className="edit-textarea"

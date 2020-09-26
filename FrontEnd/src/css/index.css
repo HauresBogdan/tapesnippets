@@ -1015,6 +1015,10 @@ body {
   padding: 1rem;
 }
 
+.edit-review {
+  max-width: 800px;
+}
+
 .center-image {
   display: block;
   margin-left: auto;
