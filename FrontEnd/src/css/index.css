@@ -69,15 +69,15 @@
   border: 2px solid lightgray;
   text-align: center;
   margin-top: 80px;
-  width: 400px !important; 
+  width: 400px !important;
 }
 
 .forgot-password {
-  color: inherit; 
+  color: inherit;
 
 }
 .forgot-password:hover {
-  color: orange; 
+  color: orange;
 
 }
 
@@ -104,11 +104,11 @@
 }
 
 .login-register-here {
-  color:inherit; 
+  color:inherit;
 }
 
 .login-register-here:hover {
-  color:#218838; 
+  color:#218838;
 }
 
 
@@ -174,7 +174,7 @@
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 1em;
-   border-top: 1px solid #3f4850; 
+   border-top: 1px solid #3f4850;
 }
 
 .search-filter-bottom {
@@ -277,7 +277,7 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
    -moz-box-shadow:    inset 0px -33px 80px 19px #2D4A5E;
   -webkit-box-shadow: inset 0px -33px 80px 19px #2D4A5E;
   box-shadow:         inset 0px -33px 80px 19px #2D4A5E;
-  
+
 
 
 }
@@ -383,18 +383,21 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
 /*we give margine top because the element before was position absolute*/
 .movie-info-section {
   margin-top: 550px;
+  font-family: 'Poppins', sans-serif;
+  color: #ebf0f3;
+  
 }
 
 .movie-info-section ul {
-  color: white;
+  
   list-style-type: none;
 }
 
 .movie-title {
   text-align: center;
-  
+
   border-bottom: 1px solid #26455a;
-  color: white;
+  
 }
 
 .specific-background {
@@ -406,10 +409,11 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
 }
 
 .movie-poster-specific {
- 
+
   border: 1px solid #CADEEC;
   border-radius: 0.5em;
- 
+  align-self: flex-start;
+
 }
 
 .my-flex {
@@ -566,7 +570,7 @@ body {
 }
 
 @media (max-width: 1310px) {
-  
+
   .new-navbar,
   .new-logo {
     font-size: 24px;
@@ -603,7 +607,7 @@ body {
     background-color: rgba(12, 37, 54, 1);
     height:  auto;
     padding-bottom: 1px;
-   
+
   }
 
 }
@@ -645,16 +649,12 @@ body {
 
 .review-textarea {
 
-  background-color: rgb(152, 183, 204);
-
+  background-color: #ebf0f3;
   border-radius: 0.5em;
-  margin-top: 10px;
-  margin-left: 40px;
-  margin-right: 100px;
   color: black;
   font-weight: bold;
   border: 1px solid white;
-  width: 87%;
+  width: 100%;
   height: 4cm;
 }
 
@@ -665,19 +665,15 @@ body {
 .review-submit {
   width: 100px;
   height: 30px;
-  background-color: rgb(152, 189, 204);
-
+  background-color: #ebf0f3;
   border-radius: 0.25em;
   border: 1px solid;
-
-  margin-left: 40px;
-
   color: rgb(1, 48, 80);
   font-weight: bold;
 }
 
 .footer-specific {
-  
+
   background-color: #081a26;
   color: #7c91a0;
   position: relative;
@@ -718,16 +714,28 @@ body {
   height: 20em;
 }
 
+.reviews-section {
+  margin: 0 auto;
+  max-width: 900px;
+  font-family: 'Poppins', sans-serif;
+
+}
+
 .sectiunea-review {
-  background-color: lightgray;
+  background-color: #ebf0f3;
   border-radius: 0.7em;
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
-  max-width: 89%;
+ 
+  
   border: 1px solid white;
   color: black;
-  
+
+}
+
+.sectiunea-reviews { 
+  padding: 0;
 }
 
 .avatar-review-s {
@@ -812,8 +820,8 @@ body {
   float: right;
   margin-right: 5%;
   color: #DBE2EF;
-  
-  
+
+
 }
 
 .youtube-logo {
@@ -844,19 +852,19 @@ body {
   /* color: #acadad; */
   text-align: center;
   font-family: 'Cousine', monospace;
-  
+
   padding: 0.1cm;
 }
 
 .TMDB-score-good {
   background-color: green;
-  
+
   display: inline-block;
   height: 12px;
   width: 12px;
   border-radius: 50%;
   margin-left:5px;
- 
+
 }
 
 
@@ -868,8 +876,8 @@ body {
   width: 12px;
   border-radius: 50%;
   margin-left:5px;
- 
- 
+
+
 }
 
 .movie-title {
@@ -896,7 +904,7 @@ body {
 .savetorating {
 }
 .trailer:hover {
-  
+
 }
 .local {
 }
@@ -942,10 +950,11 @@ body {
 }
 
 .resume {
-  max-width: 500px;
+  max-width: 12cm;
   color: white;
 }
 .spec1 {
+  
   padding: 0 1cm;
   max-width: 12cm;
 }
@@ -955,7 +964,7 @@ body {
 }
 
 .tmdb-spec2 {
-  border: 1px solid #2e546d;
+  border: 1px solid #4f6f85;
 }
 
 .tmdb-spec:link,
@@ -999,7 +1008,7 @@ body {
   background-color: #ebf0f3;
   color: #1d1f20;
   font-family: 'Merriweather', serif;
-  margin : auto; 
+  margin : auto;
   padding: 0;
 }
 
@@ -1019,7 +1028,7 @@ body {
 
 .edit-review {
   max-width: 800px;
-  margin: 0 auto;  
+  margin: 0 auto;
 }
 
 .center-image {
