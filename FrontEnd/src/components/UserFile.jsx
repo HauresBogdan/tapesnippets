@@ -22,7 +22,7 @@ function UserFile() {
   });
   const [profile, setProfile] = useState("");
   //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com"
+  const prod_uri = "https://tapesnippets.herokuapp.com";
 
   function handleChange(event) {
     const { name, value } = event.target;

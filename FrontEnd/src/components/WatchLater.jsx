@@ -19,7 +19,7 @@ function WatchLater() {
   const [refresher, setRefresher] = useState(true);
 
   //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com"
+  const prod_uri = "https://tapesnippets.herokuapp.com";
 
   function removeMovie(event) {
     const value = event.currentTarget.getAttribute("value");

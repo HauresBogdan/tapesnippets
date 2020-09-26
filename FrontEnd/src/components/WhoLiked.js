@@ -9,11 +9,11 @@ function  WhoLiked(props) {
     const [usersWhoLiked,setUsersWhoLiked] = useState([]);
 
     //const dev_uri = "http://localhost:5000";
-    const prod_uri = "https://tapesnippets.herokuapp.com"
+    const prod_uri = "https://tapesnippets.herokuapp.com";
 
     useEffect(() => {
         
-    console.log("is array?", props.whoLiked);
+    //console.log("is array?", props.whoLiked);
           //const token = localStorage.getItem("authToken");
    
           axios({

@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Login() {
 
   //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com"
+  const prod_uri = "https://tapesnippets.herokuapp.com";
 
   
   

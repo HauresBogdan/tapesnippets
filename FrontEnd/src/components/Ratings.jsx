@@ -23,7 +23,7 @@ function Ratings() {
   const [pages, setPages] = useState(1);
 
   //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com"
+  const prod_uri = "https://tapesnippets.herokuapp.com";
 
   const ratingsCount = [
     { label: "1🙂", value: 1 },

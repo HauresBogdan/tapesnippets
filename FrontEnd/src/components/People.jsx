@@ -21,7 +21,7 @@ function People() {
   const page = useSelector((state) => state.pageStateFromRedux);
 
   //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com"
+  const prod_uri = "https://tapesnippets.herokuapp.com";
 
   useEffect(() => {
     axios({
@@ -63,7 +63,7 @@ function People() {
   const peopleObjSplitedByPages = chunkArray(allPeople, 10);
   console.log(peopleObjSplitedByPages);*/
 
-  document.body.style = "background-color: white;";
+  document.body.style.backgroundColor = "white";
 
   return (
     <div className="people rm">

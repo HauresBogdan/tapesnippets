@@ -36,7 +36,7 @@ function Films() {
   const [backendResponse, setBackendResponse] = useState("");
 
   //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com"
+  const prod_uri = "https://tapesnippets.herokuapp.com";
 
   //the old pageStateFromRedux you can delete the redux actions and store if no more future pages will use mypagination
   //curentlly people watchlater and reviews  section still use it

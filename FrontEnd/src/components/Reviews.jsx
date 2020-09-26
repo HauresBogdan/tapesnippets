@@ -23,7 +23,7 @@ function Reviews() {
   const isLogged = useSelector((state) => state.isLogged);
 
   //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com"
+  const prod_uri = "https://tapesnippets.herokuapp.com";
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
