@@ -66,7 +66,7 @@ function People() {
   document.body.style.backgroundColor = "white";
 
   return (
-    <div className="people rm">
+    <div className="people">
       <Helmet>
         <title>TapeSnippets - Discover new like minded individuals</title>
         <meta name="description" content="Find new people who like movies and like to discuss them" />

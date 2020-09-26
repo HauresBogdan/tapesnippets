@@ -799,6 +799,9 @@ body {
   color: #acadad;
   text-align: center;
 }
+.people {
+  font-family: 'Poppins', sans-serif;
+}
 
 .people-parent {
   padding: 1em;
