@@ -72,7 +72,7 @@ function People() {
         <meta name="description" content="Find new people who like movies and like to discuss them" />
       </Helmet>
       <br/>
-      <h2 className="text-align-center rm">Our latest members</h2>
+      <h2 className="text-align-center rm">Check our latest members</h2>
 
       <div className="minheight3">
         <div className="people-parent">
