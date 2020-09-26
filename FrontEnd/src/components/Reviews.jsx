@@ -4,15 +4,15 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import MyPagination from "./Pagination";
 import { GrLike } from "react-icons/gr";
-import { useDispatch } from "react-redux";
-import { sendMovieIdforSpecificToRedux } from "../actions";
+//import { useDispatch } from "react-redux";
+//import { sendMovieIdforSpecificToRedux } from "../actions";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
 
 function Reviews() {
-  const dispatch = useDispatch();
+ // const dispatch = useDispatch();
   const [allReviewsData, setAllReviewsData] = useState("");
   const [newEditText, setNewEditText] = useState("");
   const [editShowUnshow, setEditShowUnshow] = useState("edit-box-hide");
@@ -175,11 +175,11 @@ function Reviews() {
     }
   }
 
-  function sendId(event) {
-    const value = event.currentTarget.getAttribute("value");
-    dispatch(sendMovieIdforSpecificToRedux(value));
-    localStorage.setItem("movieId", value);
-  }
+  // function sendId(event) {
+  //   const value = event.currentTarget.getAttribute("value");
+  //   dispatch(sendMovieIdforSpecificToRedux(value));
+  //   localStorage.setItem("movieId", value);
+  // }
 
   if(isLogged)
   {
@@ -218,7 +218,7 @@ function Reviews() {
                   // eslint-disable-next-line
                     movieDataItem.id == item.movie_id &&
                     (movieDataItem.poster_path !== null ? (
-                      <Link to="/SpecificMovie" key={movieDataItem.id}>
+                      <Link to={`/SpecificMovie/${item.movie_id}`} key={movieDataItem.id}>
                         <span
                           aria-label={movieDataItem.original_title}
                           data-balloon-pos="left"
@@ -226,8 +226,8 @@ function Reviews() {
                         >
                           <img
                             className="reviews-img"
-                            value={item.movie_id}
-                            onMouseDown={sendId}
+                            // value={item.movie_id}
+                            // onMouseDown={sendId}
                             src={
                               "https://image.tmdb.org/t/p/w154" +
                               movieDataItem.poster_path
@@ -237,7 +237,7 @@ function Reviews() {
                         </span>
                       </Link>
                     ) : (
-                      <Link to="/SpecificMovie" key={movieDataItem.id}>
+                      <Link to={`/SpecificMovie/${item.movie_id}`} key={movieDataItem.id}>
                         <span
                           aria-label={movieDataItem.original_title}
                           data-balloon-pos="left"
@@ -245,8 +245,8 @@ function Reviews() {
                         >
                           <img
                             className="reviews-img"
-                            value={item.movie_id}
-                            onMouseDown={sendId}
+                            // value={item.movie_id}
+                            // onMouseDown={sendId}
                             src={
                               "https://dummyimage.com/154x231/000/ffffff.jpg&text=" +
                               movieDataItem.original_title

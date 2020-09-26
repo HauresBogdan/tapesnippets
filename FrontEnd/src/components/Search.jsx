@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import SearchFilter from "./SearchFilter";
 import MyPagination from "./Pagination";
@@ -9,7 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { GrYoutube } from "react-icons/gr";
 
-import { sendMovieIdforSpecificToRedux } from "../actions";
+//import { sendMovieIdforSpecificToRedux } from "../actions";
 import ReactStars2 from "react-stars";
 import "../css/ballon.css";
 
@@ -18,7 +18,7 @@ import Footer from "./Footer";
 
 function Search() {
   const searchTerm = useSelector((state) => state.searchTermFromRedux);
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter);
   const page = useSelector((state) => state.pageStateFromRedux);
 
@@ -200,12 +200,12 @@ function Search() {
       });
   }
 
-  //send MovieId To SpecificMovie Component
-  function sendId(event) {
-    const value = event.currentTarget.getAttribute("value");
-    dispatch(sendMovieIdforSpecificToRedux(value));
-    localStorage.setItem("movieId", value);
-  }
+  // //send MovieId To SpecificMovie Component
+  // function sendId(event) {
+  //   const value = event.currentTarget.getAttribute("value");
+  //   dispatch(sendMovieIdforSpecificToRedux(value));
+  //   localStorage.setItem("movieId", value);
+  // }
 
   useEffect(() => {
     if (searchTerm !== "" && filter.order !== "") {
@@ -296,7 +296,7 @@ function Search() {
                       data-balloon-pos="up"
                       data-balloon-length="medium"
                     >
-                      <Link to="/SpecificMovie">
+                      <Link to={`/SpecificMovie/${item.id}`}>
                         <span
                           aria-label={item.genre_ids
                             .map((item) => `${reasembleGenres["code" + item]} `)
@@ -306,8 +306,8 @@ function Search() {
                         >
                           {item.poster_path !== null ? (
                             <img
-                              value={item.id}
-                              onMouseDown={sendId}
+                              // value={item.id}
+                              // onMouseDown={sendId}
                               src={
                                 "https://image.tmdb.org/t/p/w154" +
                                 item.poster_path
@@ -316,8 +316,8 @@ function Search() {
                             />
                           ) : (
                             <img
-                              value={item.id}
-                              onMouseDown={sendId}
+                              // value={item.id}
+                              // onMouseDown={sendId}
                               src={
                                 "https://dummyimage.com/154x231/000/ffffff.jpg&text=" +
                                 item.original_title
@@ -348,13 +348,13 @@ function Search() {
                               item2._id === item.id.toString() ? (
                                 <div
                                   key={`${item.id}+SendToSpecifiCTSRating`}
-                                  value={item.id}
-                                  onMouseDown={sendId}
+                                  // value={item.id}
+                                  // onMouseDown={sendId}
                                   className="ts-rating"
                                 >
                                   <Link
                                     className="movie-info-links"
-                                    to="/SpecificTSRatings"
+                                    to={`/SpecificTSRatings/${item.id}`}
                                   >
                                     Local:{" "}
                                     {item2.avgRating.toString().length > 1

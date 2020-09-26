@@ -23,9 +23,9 @@ function Navbar() {
   const history = useHistory();
   useEffect(() => {
     const currentPath = location.pathname;
-    //console.log("current path:", currentPath);
+    //console.log("current path:", currentPath.slice(0,15));
 
-    if (currentPath === "/SpecificMovie") {
+    if (currentPath.slice(0,15) === "/SpecificMovie/") {
       setCl("add-opacity-to-new-navbar-in-component");
     } else setCl("");
   }, [location]);

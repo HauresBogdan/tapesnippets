@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import Filter from "./FilterMovies";
 //import MyPagination from "./Pagination";
@@ -9,7 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { GrYoutube } from "react-icons/gr";
 
-import { sendMovieIdforSpecificToRedux } from "../actions";
+//import { sendMovieIdforSpecificToRedux } from "../actions";
 import ReactStars2 from "react-stars";
 import "../css/ballon.css";
 
@@ -21,7 +21,7 @@ import { Helmet } from "react-helmet";
 //import { sendPageToRedux } from "../actions";
 
 function Films() {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter);
   const [totalPages, setTotalPages] = useState(1);
   const [result, setResults] = useState(0);
@@ -50,7 +50,7 @@ function Films() {
 
   function saveToRatings(newRating) {
     const token = localStorage.getItem("authToken");
-    
+
     if (token !== "" && token) {
       //console.log(newRating);
       setRating(newRating);
@@ -79,8 +79,10 @@ function Films() {
         },
       })
         .then((res) => {
-         // console.log("ratingChanged on: ", res.data);
-          if (res.data === "Pls confirm your email adress before rating movies!") {
+          // console.log("ratingChanged on: ", res.data);
+          if (
+            res.data === "Pls confirm your email adress before rating movies!"
+          ) {
             setShowHide("show");
             setTimeout(function () {
               setShowHide("hide");
@@ -94,7 +96,6 @@ function Films() {
         })
         .catch((err) => {
           console.log(err);
-         
         });
     }
 
@@ -125,7 +126,8 @@ function Films() {
         .catch((err) => {
           console.log(err);
         });
-      (token !== "" && token) &&
+      token !== "" &&
+        token &&
         axios({
           method: "post",
           url: `${prod_uri}/getyourratings`,
@@ -177,8 +179,6 @@ function Films() {
 
   function saveToWatchLater(event) {
     const value = event.currentTarget.getAttribute("value");
-    
-    
 
     const token = localStorage.getItem("authToken");
     axios({
@@ -195,9 +195,9 @@ function Films() {
       .then((res) => {
         //console.log("backed response", res.data);
         setShowHide("show");
-    setTimeout(function () {
-      setShowHide("hide");
-    }, 1000);
+        setTimeout(function () {
+          setShowHide("hide");
+        }, 1000);
         setBackendResponse(res.data);
       })
       .catch((err) => {
@@ -206,11 +206,11 @@ function Films() {
   }
 
   //send MovieId To SpecificMovie Component
-  function sendId(event) {
-    const value = event.currentTarget.getAttribute("value");
-    dispatch(sendMovieIdforSpecificToRedux(value));
-    localStorage.setItem("movieId", value);
-  }
+  // function sendId(event) {
+  //   const value = event.currentTarget.getAttribute("value");
+  //   dispatch(sendMovieIdforSpecificToRedux(value));
+  //   localStorage.setItem("movieId", value);
+  // }
 
   useEffect(() => {
     if (filter && filter.lower_than_release_date !== "0") {
@@ -254,15 +254,23 @@ function Films() {
     setFiltWatched(!filtWatched);
   }
 
-  document.body.style.background = "f9f7f7";
+  //document.body.style.background = "f9f7f7";
+  document.body.style.background = "#2D4A5E";
+  
 
   return (
     <div>
       <Helmet>
-        <title>TapeSnippets - Browse movies by category or other filters and rate them</title>
-        <meta name="description" content="Browse and find movies by category, with or without genre, sort them by popularity or rating, by language and much more.
+        <title>
+          TapeSnippets - Browse movies by category or other filters and rate
+          them
+        </title>
+        <meta
+          name="description"
+          content="Browse and find movies by category, with or without genre, sort them by popularity or rating, by language and much more.
         Rate movies and film and check the score on other websites. Discover a network of people and interact with them socially. Review movies and track your progress. 
-        Add movies to watchlist to remind you of what to watch next." />
+        Add movies to watchlist to remind you of what to watch next."
+        />
       </Helmet>
       <div className={"info-popup " + showHide}>
         <h2 className="popup-text">{backendResponse}</h2>
@@ -308,7 +316,7 @@ function Films() {
                         data-balloon-pos="up"
                         data-balloon-length="medium"
                       >
-                        <Link to="/SpecificMovie">
+                        <Link to={`/SpecificMovie/${item.id}`}>
                           <span
                             aria-label={item.genre_ids
                               .map(
@@ -321,8 +329,8 @@ function Films() {
                             {item.poster_path !== null ? (
                               <img
                                 className="just-poster"
-                                value={item.id}
-                                onMouseDown={sendId}
+                                // value={item.id}
+                                // onMouseDown={sendId}
                                 src={
                                   "https://image.tmdb.org/t/p/w154" +
                                   item.poster_path
@@ -332,8 +340,8 @@ function Films() {
                             ) : (
                               <img
                                 className="just-poster"
-                                value={item.id}
-                                onMouseDown={sendId}
+                                // value={item.id}
+                                // onMouseDown={sendId}
                                 src={
                                   "https://dummyimage.com/154x231/000/ffffff.jpg&text=" +
                                   item.original_title
@@ -372,14 +380,14 @@ function Films() {
                                 item2._id === item.id.toString() ? (
                                   <div
                                     key={`${item.id}+SendToSpecifiCTSRating`}
-                                    value={item.id}
-                                    onMouseDown={sendId}
+                                    // value={item.id}
+                                    // onMouseDown={sendId}
                                     className="ts-rating"
                                   >
                                     <Link
                                       className="movie-info-links"
-                                      to="/SpecificTSRatings"
-                                    >
+                                      to={`/SpecificTSRatings/${item.id}`}
+                                    >                                      
                                       Local:{" "}
                                       {item2.avgRating.toString().length > 1
                                         ? item2.avgRating.toFixed(1)
@@ -492,9 +500,7 @@ function Films() {
           </span>
         )}
       </div>
-      {movieList.length !== 0 && (
-        <Footer/>
-      )}
+      {movieList.length !== 0 && <Footer />}
     </div>
   );
 }

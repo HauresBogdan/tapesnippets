@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 //import { Redirect } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+//import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { sendMovieIdforSpecificToRedux } from "../actions";
+//import { sendMovieIdforSpecificToRedux } from "../actions";
 import { GrLike } from "react-icons/gr";
 import { FaRegCommentDots } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -11,14 +11,17 @@ import "../css/ballon.css";
 import WhoLiked from "./WhoLiked";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
+import { useParams} from "react-router";
 
 function SpecificMovie() {
   //const isLogged = useSelector((state) => state.isLogged);
 
   const [movieData, setMovieData] = useState({});
-  const dispatch = useDispatch();
-  dispatch(sendMovieIdforSpecificToRedux(localStorage.getItem("movieId")));
-  const movieIdForSpecific = useSelector((state) => state.movieIdForSpecific);
+  //const dispatch = useDispatch();
+  //dispatch(sendMovieIdforSpecificToRedux(localStorage.getItem("movieId")));
+  //const movieIdForSpecific = useSelector((state) => state.movieIdForSpecific);
+  const { movieIdfromParams } = useParams();
+   const movieIdForSpecific =  movieIdfromParams;
 
   const [movieReview, setMovieReview] = useState("");
   const [reviewsData, setReviewsData] = useState("");
@@ -37,6 +40,8 @@ function SpecificMovie() {
   const [backendResponse, setBackendResponse] = useState("");
   const [showHide, setShowHide] = useState("hide");
 
+  
+  
   //const dev_uri = "http://localhost:5000";
   const prod_uri = "https://tapesnippets.herokuapp.com";
 
@@ -50,6 +55,9 @@ function SpecificMovie() {
   function submitComment() {
     setSubmitedComment(!submitedComment);
   }
+
+  
+      
 
   //send  comment to backend
   useEffect(() => {

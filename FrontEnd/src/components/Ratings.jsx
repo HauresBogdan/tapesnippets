@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BsChevronDoubleDown } from "react-icons/bs";
 import { BsChevronDoubleUp } from "react-icons/bs";
-import { useDispatch } from "react-redux";
-import { sendMovieIdforSpecificToRedux } from "../actions";
+//import { useDispatch } from "react-redux";
+//import { sendMovieIdforSpecificToRedux } from "../actions";
 import { Link } from "react-router-dom";
 import Pagination from "react-js-pagination";
 import "../css/ballon.css";
@@ -14,7 +14,7 @@ import { Helmet } from "react-helmet";
 function Ratings() {
   const [pageState, setPageState] = useState({ activePage: 1 });
 
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   const [ratings, setRatings] = useState("");
   const [descending, setDescending] = useState(false);
@@ -107,12 +107,12 @@ function Ratings() {
       );
   }, [ratings]);
 
-  //send MovieId To SpecificMovie Component
-  function sendId(event) {
-    const value = event.currentTarget.getAttribute("value");
-    dispatch(sendMovieIdforSpecificToRedux(value));
-    localStorage.setItem("movieId", value);
-  }
+  // //send MovieId To SpecificMovie Component
+  // function sendId(event) {
+  //   const value = event.currentTarget.getAttribute("value");
+  //   dispatch(sendMovieIdforSpecificToRedux(value));
+  //   localStorage.setItem("movieId", value);
+  // }
 
   document.body.style.backgroundColor = "white";
 
@@ -156,8 +156,12 @@ function Ratings() {
                   {movieData.length > 0 &&
                     movieData.map((movieDataItem) =>
                       movieDataItem.id.toString() === item._id ? (
+
+                        
+                        
+                        
                         <Link
-                          to="/SpecificMovie"
+                          to={`/SpecificMovie/${movieDataItem.id}`}
                           key={movieDataItem.id + "md"}
                           aria-label={
                             "Votes: " +
@@ -169,8 +173,8 @@ function Ratings() {
                         >
                           {movieDataItem.poster_path !== null ? (
                             <img
-                              value={movieDataItem.id}
-                              onMouseDown={sendId}
+                              // value={movieDataItem.id}
+                              // onMouseDown={sendId}
                               className="rating-poster"
                               src={
                                 "https://image.tmdb.org/t/p/w92" +
@@ -180,8 +184,8 @@ function Ratings() {
                             />
                           ) : (
                             <img
-                              value={movieDataItem.id}
-                              onMouseDown={sendId}
+                              // value={movieDataItem.id}
+                              // onMouseDown={sendId}
                               className="rating-poster"
                               src={
                                 "https://dummyimage.com/92x138/000/ffffff.jpg&text=" +

@@ -59,8 +59,8 @@ function App() {
           <Route path="/WatchLater" component={WatchLater} />
           <Route path="/Reviews" component={Reviews} />
          { /*<Route path="/Trash" component={Trash} />*/}
-          <Route path="/SpecificMovie" component={SpecificMovie} />
-          <Route path="/SpecificTsRatings" component={SpecificTSRatings} />
+          <Route path="/SpecificMovie/:movieIdfromParams" component={SpecificMovie} />
+          <Route path="/SpecificTsRatings/:movieIdfromParams" component={SpecificTSRatings} />
           <Route path="/Search" component={Search} />
           <Route path="/UserFile" component={UserFile} />
           <Route path="/About" component={About} />

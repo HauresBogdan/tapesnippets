@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import MyPagination from "./Pagination";
 //import { v4 as uuidv4 } from "uuid";
 import { IoIosCloseCircle } from "react-icons/io";
-import { sendMovieIdforSpecificToRedux } from "../actions";
+//import { sendMovieIdforSpecificToRedux } from "../actions";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
 
 function WatchLater() {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const isLogged = useSelector((state) => state.isLogged);
   const [watchLaterList, setWatchLaterList] = useState("");
   const page = useSelector((state) => state.pageStateFromRedux);
@@ -91,11 +91,11 @@ function WatchLater() {
   }, [movieId]);
 
   //send MovieId To SpecificMovie Component
-  function sendId(event) {
-    const value = event.currentTarget.getAttribute("value");
-    dispatch(sendMovieIdforSpecificToRedux(value));
-    localStorage.setItem("movieId", value);
-  }
+  // function sendId(event) {
+  //   const value = event.currentTarget.getAttribute("value");
+  //   dispatch(sendMovieIdforSpecificToRedux(value));
+  //   localStorage.setItem("movieId", value);
+  // }
 
   document.body.style.backgroundColor = "#D7E0E6";
 
@@ -141,12 +141,12 @@ function WatchLater() {
                       key={movieInfo.id}
                       className="watch-list-child movie-card"
                     >
-                      <Link to="/SpecificMovie">
+                      <Link to={`/SpecificMovie/${movieInfo.id}`}>
                         {movieInfo.poster_path !== null ? (
                           <img
                             className="movie-image"
-                            value={movieInfo.id}
-                            onMouseDown={sendId}
+                            // value={movieInfo.id}
+                            // onMouseDown={sendId}
                             src={
                               "https://image.tmdb.org/t/p/w154" +
                               movieInfo.poster_path
@@ -156,8 +156,8 @@ function WatchLater() {
                         ) : (
                           <img
                             className="movie-image"
-                            value={movieInfo.id}
-                            onMouseDown={sendId}
+                            // value={movieInfo.id}
+                            // onMouseDown={sendId}
                             src={
                               "https://dummyimage.com/154x231/000/ffffff.jpg&text=" +
                               movieInfo.original_title

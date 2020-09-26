@@ -4,9 +4,12 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import MyPagination from "./Pagination";
 import Footer from "./Footer";
+import { useParams} from "react-router";
 
 function SpecificTSRatings() {
-  const movieId = useSelector((state) => state.movieIdForSpecific);
+  //const movieId = useSelector((state) => state.movieIdForSpecific);
+  const { movieIdfromParams } = useParams();
+  const movieId =  movieIdfromParams;
   const [allRatingsOfCurrentMovie, setAllRatingsOfCurrentMovie] = useState("");
   const page = useSelector((state) => state.pageStateFromRedux);
 

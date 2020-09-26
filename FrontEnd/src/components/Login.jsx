@@ -182,6 +182,9 @@ function Login() {
   }
 
 
+  document.body.style.background = "white";
+
+
 
   return (
     <>
