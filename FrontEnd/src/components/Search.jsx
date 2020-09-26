@@ -332,7 +332,7 @@ function Search() {
 
                     <div className="movie-info">
                       <div className="year">
-                        {item.release_date.slice(0, 4)}
+                        {item.release_date && item.release_date.slice(0, 4)}
                       </div>
                       <div className="TMDB-score">
                         <a

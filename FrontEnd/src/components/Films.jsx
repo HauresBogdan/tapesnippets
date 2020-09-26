@@ -79,7 +79,7 @@ function Films() {
         },
       })
         .then((res) => {
-          console.log("ratingChanged on: ", res.data);
+         // console.log("ratingChanged on: ", res.data);
           if (res.data === "Pls confirm your email adress before rating movies!") {
             setShowHide("show");
             setTimeout(function () {
