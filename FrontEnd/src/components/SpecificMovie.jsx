@@ -38,17 +38,13 @@ function SpecificMovie() {
   const [showHide, setShowHide] = useState("hide");
 
   //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com"
-
-
+  const prod_uri = "https://tapesnippets.herokuapp.com";
 
   function sendCommentToBackend(event) {
-
     const value = event.target.value;
     const value2 = event.currentTarget.getAttribute("value2");
     setCommentToPost(value);
-    setReviewId(value2);  
-
+    setReviewId(value2);
   }
 
   function submitComment() {
@@ -74,28 +70,25 @@ function SpecificMovie() {
       })
         .then((res) => {
           //console.log("response from backend:", res.data);
-          if(res.data==="user unconfirmed") {
-
+          if (res.data === "user unconfirmed") {
             setShowHide("show");
             setTimeout(function () {
-            setShowHide("hide");
+              setShowHide("hide");
             }, 1000);
             setBackendResponse("You must confirm your email to post comments!");
-
-          } else if(res.data==="saved comment") {
+          } else if (res.data === "saved comment") {
             setCommentToPost("");
             setReviewId("");
             setpostComment(!postComment);
           }
-          
         })
         .catch((err) => {
           console.log(err);
           setShowHide("show");
-            setTimeout(function () {
+          setTimeout(function () {
             setShowHide("hide");
-            }, 1000);
-            setBackendResponse("You must be logged in to do that!");
+          }, 1000);
+          setBackendResponse("You must be logged in to do that!");
         });
     }
 
@@ -131,11 +124,10 @@ function SpecificMovie() {
         console.log(err);
 
         setShowHide("show");
-            setTimeout(function () {
-            setShowHide("hide");
-            }, 1000);
-            setBackendResponse("You must be logged in to do that!");
-
+        setTimeout(function () {
+          setShowHide("hide");
+        }, 1000);
+        setBackendResponse("You must be logged in to do that!");
       });
   }
 
@@ -204,7 +196,7 @@ function SpecificMovie() {
           setIMDBScore(res.data.data);
         })
         .catch((err) => {
-          console.log(err);          
+          console.log(err);
         });
     }
   }, [movieData]);
@@ -226,35 +218,32 @@ function SpecificMovie() {
       },
     })
       .then((res) => {
-       // console.log("from addLike", res.data);
-        if(res.data==="Pls confirm your email before adding likes")
-        {
+        // console.log("from addLike", res.data);
+        if (res.data === "Pls confirm your email before adding likes") {
           setShowHide("show");
-            setTimeout(function () {
+          setTimeout(function () {
             setShowHide("hide");
-            }, 1000);
-            setBackendResponse("Pls confirm your email before adding likes!");
-
+          }, 1000);
+          setBackendResponse("Pls confirm your email before adding likes!");
         } else {
           setLikeResponse(res.data);
           setRefresher(!refresher);
         }
-        
       })
       .catch((err) => {
         console.log(err);
         setShowHide("show");
-            setTimeout(function () {
-            setShowHide("hide");
-            }, 1000);
-            setBackendResponse("You must be logged in to add likes!");
+        setTimeout(function () {
+          setShowHide("hide");
+        }, 1000);
+        setBackendResponse("You must be logged in to add likes!");
       });
   }
 
   if (likeResponse === "already liked") {
     setShowHide("show");
     setTimeout(function () {
-    setShowHide("hide");
+      setShowHide("hide");
     }, 1000);
     setBackendResponse("You already liked this!");
     setLikeResponse("");
@@ -270,7 +259,7 @@ function SpecificMovie() {
 
   return (
     <>
-    {/*we want even unloged in people to se the specific page so i commented next line*/}
+      {/*we want even unloged in people to se the specific page so i commented next line*/}
       {/*!isLogged ? <Redirect to="/Login" /> : null*/}
 
       <div className={"info-popup " + showHide}>
@@ -310,7 +299,7 @@ function SpecificMovie() {
         />
       )}
       <div className="container-to-reduce-on-pc-screen-size3">
-        <div className="movie-info-section rm">
+        <div className="movie-info-section">
           {movieData.poster_path !== null ? (
             <img
               className="movie-poster-specific"
@@ -329,10 +318,13 @@ function SpecificMovie() {
             />
           )}
 
-      <Helmet>
-        <title>{movieData.title} Score - Write Review</title>
-        <meta name="description" content="Write movie review or read other comprehensive reviews from other people for this a particular movie" />
-      </Helmet>
+          <Helmet>
+            <title>{`${movieData.title} Score - Write Review`}</title>
+            <meta
+              name="description"
+              content="Write movie review or read other comprehensive reviews from other people for this a particular movie"
+            />
+          </Helmet>
 
           <ul>
             <li>
@@ -355,7 +347,7 @@ function SpecificMovie() {
                 <li>
                   Homepage:{" "}
                   <a className="homepage" href={movieData.homepage}>
-                    Go There
+                    Link
                   </a>
                 </li>
                 <li>Language: {movieData.original_language}</li>

@@ -1,3 +1,6 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+import 'react-app-polyfill/ie9';
 import React from "react";
 import ReactDOM from "react-dom";
 import "./css/index.css";
@@ -6,6 +9,7 @@ import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import allReducers from "./reducers/combinedReducers";
 import { Provider } from "react-redux";
+
 
 const store = createStore(
   allReducers,

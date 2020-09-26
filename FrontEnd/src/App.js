@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Navbar from "./components/Navbar2";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -23,11 +23,7 @@ import { Helmet } from "react-helmet";
 
 
 function App() {
-
-//   useEffect(() => {
-//     document.title = "TapeSnippets"
-//  }, []);
-  
+ 
   const dispatch = useDispatch();
 
   function checkLogStatus() {
