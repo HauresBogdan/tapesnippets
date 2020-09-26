@@ -212,6 +212,7 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
 .review-pag {
   padding-top: 1cm;
   padding-bottom: 0.7cm;
+  background-color: #EBF0F3;
 
 }
 
@@ -1005,6 +1006,7 @@ body {
 
 .gradient-list {
   list-style: none;
+  padding-bottom: 1px
 }
 .individual-reviews {
   background: white;
@@ -1017,6 +1019,7 @@ body {
 
 .edit-review {
   max-width: 800px;
+  margin: 0 auto;  
 }
 
 .center-image {
