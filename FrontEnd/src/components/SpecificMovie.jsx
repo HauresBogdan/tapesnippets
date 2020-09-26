@@ -266,6 +266,14 @@ function SpecificMovie() {
         <h2 className="popup-text">{backendResponse}</h2>
       </div>
 
+      <Helmet>
+        <title>{`${movieData.title} Score - Write Review`}</title>
+        <meta
+          name="description"
+          content="Write movie review or read other comprehensive reviews from other people for this a particular movie"
+        />
+      </Helmet>
+
       {revealWhoLiked === true && (
         <>
           <WhoLiked whoLiked={whoLikedUsersId} />
@@ -298,128 +306,119 @@ function SpecificMovie() {
           alt="moviePoster"
         />
       )}
-      <div className="container-to-reduce-on-pc-screen-size3">
+      
         <div className="movie-info-section">
-          {movieData.poster_path !== null ? (
-            <img
-              className="movie-poster-specific"
-              src={"https://image.tmdb.org/t/p/w342" + movieData.poster_path}
-              alt="moviePoster"
-            />
-          ) : (
-            <img
-              className="movie-poster-specific"
-              src={
-                "https://dummyimage.com/342x513/000/ffffff.jpg&text=" +
-                movieData.original_title
-              }
-              //src={"https://picsum.photos/154/231"}
-              alt="moviePoster"
-            />
-          )}
+          <h1 className="movie-title">{movieData.title}</h1>
+          <div className="my-flex">
+            {movieData.poster_path !== null ? (
+              <img
+                className="movie-poster-specific"
+                src={"https://image.tmdb.org/t/p/w342" + movieData.poster_path}
+                alt="moviePoster"
+              />
+            ) : (
+              <img
+                className="movie-poster-specific"
+                src={
+                  "https://dummyimage.com/342x513/000/ffffff.jpg&text=" +
+                  movieData.original_title
+                }
+                //src={"https://picsum.photos/154/231"}
+                alt="moviePoster"
+              />
+            )}
 
-          <Helmet>
-            <title>{`${movieData.title} Score - Write Review`}</title>
-            <meta
-              name="description"
-              content="Write movie review or read other comprehensive reviews from other people for this a particular movie"
-            />
-          </Helmet>
+            <ul className="spec1">
+              <li>Aka: {movieData.original_title}</li>
+              <li>Budget: {movieData.budget}</li>
+              <li>
+                Genres:{" "}
+                {movieData.genres
+                  ? movieData.genres.map((item, index) =>
+                      index !== movieData.genres.length - 1
+                        ? item.name + " , "
+                        : item.name + ". "
+                    )
+                  : null}
+              </li>
+              <li>
+                Homepage:{" "}
+                <a className="homepage" href={movieData.homepage}>
+                  Link
+                </a>
+              </li>
+              <li>Language: {movieData.original_language}</li>
+              <li>Popularity: {movieData.popularity}</li>
+              <li>
+                Production:{" "}
+                {movieData.genres
+                  ? movieData.production_companies.map((item, index) =>
+                      index !== movieData.production_companies.length - 1
+                        ? item.name + " , "
+                        : item.name + ". "
+                    )
+                  : null}
+              </li>
+              <li>
+                Production countries:{" "}
+                {movieData.genres
+                  ? movieData.production_countries.map((item, index) =>
+                      index !== movieData.production_countries.length - 1
+                        ? item.name + " , "
+                        : item.name + ". "
+                    )
+                  : null}
+              </li>
 
-          <ul>
-            <li>
-              <h1 className="movie-title">{movieData.title}</h1>
-            </li>
-            <div className="movie-info-spec">
-              <div className="movie-info-spec1">
-                <li>Aka: {movieData.original_title}</li>
-                <li>Budget: {movieData.budget}</li>
-                <li>
-                  Genres:{" "}
-                  {movieData.genres
-                    ? movieData.genres.map((item, index) =>
-                        index !== movieData.genres.length - 1
-                          ? item.name + " , "
-                          : item.name + ". "
-                      )
-                    : null}
-                </li>
-                <li>
-                  Homepage:{" "}
-                  <a className="homepage" href={movieData.homepage}>
-                    Link
-                  </a>
-                </li>
-                <li>Language: {movieData.original_language}</li>
-                <li>Popularity: {movieData.popularity}</li>
-                <li>
-                  Production:{" "}
-                  {movieData.genres
-                    ? movieData.production_companies.map((item, index) =>
-                        index !== movieData.production_companies.length - 1
-                          ? item.name + " , "
-                          : item.name + ". "
-                      )
-                    : null}
-                </li>
-                <li>
-                  Production countries:{" "}
-                  {movieData.genres
-                    ? movieData.production_countries.map((item, index) =>
-                        index !== movieData.production_countries.length - 1
-                          ? item.name + " , "
-                          : item.name + ". "
-                      )
-                    : null}
-                </li>
+              <li>Release date: {movieData.release_date}</li>
+              <li>Revenue: {movieData.revenue}</li>
+              <li>
+                Spoken languages:{" "}
+                {movieData.genres
+                  ? movieData.spoken_languages.map((item, index) =>
+                      index !== movieData.spoken_languages.length - 1
+                        ? item.name + " , "
+                        : item.name + ". "
+                    )
+                  : null}
+              </li>
+              <li>Status: {movieData.status}</li>
+              <li>Tagline: {movieData.tagline}</li>
+              <li>Runtime: {movieData.runtime}</li>
+              <li className="tmdb-spec2">
+                <a
+                  className="tmdb-spec"
+                  href={`https://www.themoviedb.org/movie/${movieData.id}`}
+                >
+                  Tmdb rating: {movieData.vote_average} ⭐
+                </a>
+              </li>
+              <li className="border-wall">
+                <a
+                  className="tmdb-spec"
+                  href={`https://www.imdb.com/title/${movieData.imdb_id}`}
+                >
+                  Imdb rating: {imdbScore} ⭐{" "}
+                  <img
+                    src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png"
+                    alt="imdb logo"
+                    height="5%"
+                    width="5%"
+                  />{" "}
+                </a>
+              </li>
+              <li>Vote Count: {movieData.vote_count}</li>
+            </ul>
 
-                <li>Release date: {movieData.release_date}</li>
-                <li>Revenue: {movieData.revenue}</li>
-                <li>
-                  Spoken languages:{" "}
-                  {movieData.genres
-                    ? movieData.spoken_languages.map((item, index) =>
-                        index !== movieData.spoken_languages.length - 1
-                          ? item.name + " , "
-                          : item.name + ". "
-                      )
-                    : null}
-                </li>
-                <li>Status: {movieData.status}</li>
-                <li>Tagline: {movieData.tagline}</li>
-                <li>Runtime: {movieData.runtime}</li>
-                <li className="tmdb-spec2">
-                  <a
-                    className="tmdb-spec"
-                    href={`https://www.themoviedb.org/movie/${movieData.id}`}
-                  >
-                    Tmdb rating: {movieData.vote_average} ⭐
-                  </a>
-                </li>
-                <li className="border-wall">
-                  <a
-                    className="tmdb-spec"
-                    href={`https://www.imdb.com/title/${movieData.imdb_id}`}
-                  >
-                    Imdb rating: {imdbScore} ⭐{" "}
-                    <img
-                      src="https://m.media-amazon.com/images/G/01/IMDb/BG_rectangle._CB1509060989_SY230_SX307_AL_.png"
-                      alt="imdb logo"
-                      height="5%"
-                      width="5%"
-                    />{" "}
-                  </a>
-                </li>
-                <li>Vote Count: {movieData.vote_count}</li>
-              </div>
-              <div className="movie-info-spec2">
-                <div className="text-align-center">Resume:</div>
-                <br />
-                <p> {movieData.overview}</p>
-              </div>
+            <div className="resume">
+              <div className="text-align-center">Resume:</div>
+              <br />
+              <p> {movieData.overview}</p>
             </div>
-          </ul>
+          </div>
+
           <br />
+
           <p className="answer-from-post-review">{answerFromPostReview}</p>
 
           <textarea
@@ -541,7 +540,7 @@ function SpecificMovie() {
               ))}
           </ul>
         </div>
-      </div>
+      
 
       <Footer />
     </>

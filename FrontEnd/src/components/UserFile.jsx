@@ -74,7 +74,7 @@ function UserFile() {
       });
   }, []);
 
-  document.body.style = "background-color: white;";
+  document.body.style.backgroundColor = "white";
 
   return (
     <>

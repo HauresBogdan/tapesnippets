@@ -281,15 +281,7 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
 
 }
 
-.container-to-reduce-on-pc-screen-size3 {
-  max-width: 90%;
-  padding: 1cm 0 1cm 0;
-  margin: auto;
-  display: flex;
-  justify-content: center;
 
-
-}
 
 
 
@@ -398,10 +390,10 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
 }
 
 .movie-title {
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 100px;
-  border: 1.5px solid #a4b7c2;
+  text-align: center;
+  
+  border-bottom: 1px solid #26455a;
+  color: white;
 }
 
 .specific-background {
@@ -413,12 +405,19 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
 }
 
 .movie-poster-specific {
-  float: left;
-  border: 1px solid white;
+ 
+  border: 1px solid #CADEEC;
   border-radius: 0.5em;
-  margin-left: 40px;
-  margin-right: 100px;
+ 
 }
+
+.my-flex {
+  display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center ;
+}
+
 body {
   background-color: white;
 }
@@ -929,27 +928,13 @@ body {
   background-color: red;
 }
 
-.movie-info-spec {
-  display: flex;
-  padding-top: 1em;
-
-  justify-content: flex-start;
+.resume {
+  max-width: 500px;
+  color: white;
 }
-
-.movie-info-spec1 {
-  min-width: 20em;
-  max-width: 40em;
-  border: 1px solid #2e546d;
-  padding: 1em;
-}
-
-.movie-info-spec2 {
-  min-width: 20em;
-  max-width: 40em;
-  border: 1px solid #2e546d;
-  padding: 1em;
-  margin-left: 2em;
-  font-size: large;
+.spec1 {
+  padding: 0 1cm;
+  max-width: 12cm;
 }
 
 .border-wall {
@@ -1336,6 +1321,7 @@ body {
 .about-page {
   background-color: white;
 }
+
 
 
 

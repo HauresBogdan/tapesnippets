@@ -242,7 +242,7 @@ function Search() {
     setFiltWatched(!filtWatched);
   }
 
-  document.body.style = "background-color: #0C2536;";
+  document.body.style.background = "#0C2536";
 
   return (
     <div>
