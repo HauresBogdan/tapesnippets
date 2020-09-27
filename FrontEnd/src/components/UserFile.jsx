@@ -117,9 +117,9 @@ function UserFile() {
               type="text"
               className="bio-input"
               placeholder="Add goodreads handler"
-              name="website"
+              name="goodreads"
               onChange={handleChange}
-              value={userBio.website}
+              value={userBio.goodreads}
             ></input>
             <input
               type="text"
