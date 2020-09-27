@@ -10,6 +10,7 @@ import {
 } from "react-icons/ai";
 import Footer from "./Footer";
 
+
 function UserFile() {
   const [userBio, setUserBio] = useState({
     bio: "",
@@ -21,6 +22,9 @@ function UserFile() {
     instagram: "",
   });
   const [profile, setProfile] = useState("");
+  const [validLinkMsg, setValidLinkMsg] = useState("");
+
+
   //const dev_uri = "http://localhost:5000";
   const prod_uri = "https://tapesnippets.herokuapp.com";
 
@@ -35,6 +39,8 @@ function UserFile() {
 
   function handleUpdateAll() {
     //axios call to backend to update with the new  userBio obj
+
+    
 
     axios({
       method: "post",
@@ -91,6 +97,7 @@ function UserFile() {
             />
             <br />
             <br />
+            {validLinkMsg}
             <input
               type="text"
               className="bio-input"

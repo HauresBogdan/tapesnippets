@@ -9,6 +9,7 @@ import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import allReducers from "./reducers/combinedReducers";
 import { Provider } from "react-redux";
+import HttpsRedirect from 'react-https-redirect';
 
 
 const store = createStore(
@@ -17,9 +18,11 @@ const store = createStore(
 );
 
 ReactDOM.render(
+  <HttpsRedirect>
   <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+  </HttpsRedirect>,
   document.getElementById("root")
 );
 
