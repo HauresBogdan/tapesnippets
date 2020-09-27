@@ -64,7 +64,7 @@ const UserSchema = new mongoose.Schema({
     facebook: {
       type: String,
     },
-    website: {
+    goodreads: {
       type: String,
     },
     instagram: {

@@ -117,7 +117,7 @@ function Ratings() {
   document.body.style.backgroundColor = "white";
 
   return (
-    <div className="rm">
+    <div className="poppins">
        <Helmet>
         <title>TapeSnippets - Movie Ratings</title>
         <meta name="description" content="Sort and filter movies by their ratings and a minimum vote count" />
@@ -133,7 +133,7 @@ function Ratings() {
               <BsChevronDoubleUp size="1.2em" />
             )}
           </span>
-          Minimum Votes Number:
+          Minimum Votes Number:{"  "}
           <select
             onChange={filterHandle}
             value={minCount}

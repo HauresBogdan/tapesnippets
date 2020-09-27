@@ -102,13 +102,13 @@ function WatchLater() {
   return (
     <>
     {!isLogged ? <Redirect to="/Login" /> : 
-    <div className="rm">
+    <div className="poppins">
       
       <Helmet>
         <title>TapeSnippets - Your WatchLater Movies List</title>
         <meta name="description" content="Here you will find your movies that have been added to your watchlater list as a reminder to watch them later." />
       </Helmet>
-
+    <br/>
       <p className="text-align-center">
         You have {watchLaterList === "empty" ? 0 : watchLaterList.length} movies
         in your WatchList

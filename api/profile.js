@@ -24,7 +24,29 @@ router.post("/", verifyToken, async (req, res) => {
             if (userBio[key] !=="") 
             {
                 //userBio[key] is the value                
-                user.profile[key]= userBio[key];               
+                
+                if(key==='facebook'){
+                  user.profile[key]= `https://www.facebook.com/${userBio[key]}`;  
+                } else if(key==='youtube')
+                {
+                  user.profile[key]= `https://www.youtube.com/${userBio[key]}`;  
+                }             
+                else if(key==='goodreads')
+                {
+                  user.profile[key]= `https://www.goodreads.com/user/show/${userBio[key]}`;  
+                } 
+                else if(key==='twitter')
+                {
+                  user.profile[key]= `https://twitter.com/${userBio[key]}`;  
+                } 
+                else if (key==='linkedin')
+                {
+                  user.profile[key]= `https://www.linkedin.com/in/${userBio[key]}`;  
+                }   
+                else if (key==='instagram')
+                {
+                  user.profile[key]= `https://www.instagram.com/${userBio[key]}`;  
+                }       
 
             }
         }        

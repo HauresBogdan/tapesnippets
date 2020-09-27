@@ -364,7 +364,7 @@ function Films() {
                             className="movie-info-links"
                             href={`https://www.themoviedb.org/movie/${item.id}`}
                           >
-                            TMDB:
+                            TMDB:{" "}
                             {item.vote_average}
                             {parseInt(item.vote_average) > 6 ? (
                               <div className="TMDB-score-good"></div>
@@ -400,7 +400,7 @@ function Films() {
                         </div>
 
                         <div className="savetorating">
-                          Save:
+                          Save:{" "}
                           <span
                             value={item.id}
                             onClick={saveToWatchLater}
@@ -416,7 +416,7 @@ function Films() {
                           src="/yt_logo_rgb_light.png"
                           alt="youtube"
                         />*/}
-                          Trailer:
+                          Trailer:{" "}
                           <a
                             className="movie-info-links"
                             href={`https://www.youtube.com/results?search_query=${item.original_title} trailer`}
@@ -435,10 +435,10 @@ function Films() {
                           </a>
                         </div>
                         <div className="language">
-                          Language:{item.original_language}
+                          Language:{" "}{item.original_language}
                         </div>
                         <div className="Synospsy">
-                          Resume:
+                          Resume:{" "}
                           <span
                             aria-label={item.overview}
                             data-balloon-pos="up"
@@ -484,7 +484,7 @@ function Films() {
           </div>
         </div>
         {movieList.length !== 0 && (
-          <span className="centered-pagination films-pag rm">
+          <span className="centered-pagination films-pag poppins">
             {/* <MyPagination totalItemsCount={totalPages}/>*/}
 
             <Pagination

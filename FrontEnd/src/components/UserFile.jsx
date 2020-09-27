@@ -16,17 +16,17 @@ function UserFile() {
     bio: "",
     facebook: "",
     youtube: "",
-    website: "",
+    goodreads: "",
     twitter: "",
     linkedin: "",
     instagram: "",
   });
   const [profile, setProfile] = useState("");
-  const [validLinkMsg, setValidLinkMsg] = useState("");
+  
 
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = "http://localhost:5000";
+ // const prod_uri = "https://tapesnippets.herokuapp.com";
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -97,11 +97,10 @@ function UserFile() {
             />
             <br />
             <br />
-            {validLinkMsg}
             <input
               type="text"
               className="bio-input"
-              placeholder="Add link to your facebook..."
+              placeholder="Add facebook handler"
               onChange={handleChange}
               value={userBio.facebook}
               name="facebook"
@@ -109,7 +108,7 @@ function UserFile() {
             <input
               type="text"
               className="bio-input"
-              placeholder="Add link to your youtube..."
+              placeholder="Add youtube uri"
               name="youtube"
               onChange={handleChange}
               value={userBio.youtube}
@@ -117,7 +116,7 @@ function UserFile() {
             <input
               type="text"
               className="bio-input"
-              placeholder="Add link to your website..."
+              placeholder="Add goodreads handler"
               name="website"
               onChange={handleChange}
               value={userBio.website}
@@ -125,7 +124,7 @@ function UserFile() {
             <input
               type="text"
               className="bio-input"
-              placeholder="Add link to your twitter..."
+              placeholder="Add twitter handler "
               name="twitter"
               onChange={handleChange}
               value={userBio.twitter}
@@ -133,7 +132,7 @@ function UserFile() {
             <input
               type="text"
               className="bio-input"
-              placeholder="Add link to your linkedin..."
+              placeholder="Add linkedin handler"
               name="linkedin"
               onChange={handleChange}
               value={userBio.linkedin}
@@ -141,7 +140,7 @@ function UserFile() {
             <input
               type="text"
               className="bio-input"
-              placeholder="Add link to your instagram..."
+              placeholder="Add instagram handler"
               name="instagram"
               onChange={handleChange}
               value={userBio.instagram}

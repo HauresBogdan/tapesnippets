@@ -190,12 +190,12 @@
 
 .filter-films {
   /* background-color: #103046; */
-  font-family: 'Roboto Mono', monospace;
-
+  /* font-family: 'Roboto Mono', monospace; */
+  font-family: 'Poppins', sans-serif;
    background-color: #2D4A5E;
    -webkit-box-shadow: inset 0px 60px 118px 13px #0C2536;
--moz-box-shadow: inset 0px 60px 118px 13px #0C2536;
-box-shadow: inset 0px 60px 118px 13px #0C2536;
+   -moz-box-shadow: inset 0px 60px 118px 13px #0C2536;
+   box-shadow: inset 0px 60px 118px 13px #0C2536;
 
 
 }
@@ -385,11 +385,11 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
   margin-top: 550px;
   font-family: 'Poppins', sans-serif;
   color: #ebf0f3;
-  
+
 }
 
 .movie-info-section ul {
-  
+
   list-style-type: none;
 }
 
@@ -397,7 +397,7 @@ box-shadow: inset 0px 60px 118px 13px #0C2536;
   text-align: center;
 
   border-bottom: 1px solid #26455a;
-  
+
 }
 
 .specific-background {
@@ -425,6 +425,7 @@ justify-content: center ;
 
 body {
   background-color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 /*nevbar2*/
@@ -727,14 +728,14 @@ body {
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
- 
-  
+
+
   border: 1px solid white;
   color: black;
 
 }
 
-.sectiunea-reviews { 
+.sectiunea-reviews {
   padding: 0;
 }
 
@@ -768,7 +769,7 @@ body {
 
 .answer-from-post-review {
   color: rgb(199, 243, 162);
-  
+
 }
 
 .user-card-image {
@@ -854,8 +855,8 @@ body {
   justify-content: space-around;
   /* color: #acadad; */
   text-align: center;
-  font-family: 'Cousine', monospace;
-
+  /* font-family: 'Cousine', monospace; */
+  font-family: 'Poppins', sans-serif;
   padding: 0.1cm;
 }
 
@@ -924,13 +925,15 @@ body {
   /* background-color: rgba(12, 37, 54, 1); */
   background-color: #2d4a5e;
 
+
 }
 .results {
   /* color: #acadad; */
   color: #DBE2EF;
   font-weight: 350;
   font-size: 1em;
-  font-family: 'Roboto Mono', monospace;
+  /* font-family: 'Roboto Mono', monospace; */
+  font-family: 'Poppins', sans-serif;
 
 }
 
@@ -957,7 +960,7 @@ body {
   color: white;
 }
 .spec1 {
-  
+
   padding: 0 1cm;
   max-width: 12cm;
 }
@@ -1341,6 +1344,10 @@ body {
 .mw {
   font-family: 'Merriweather', serif;
 
+}
+
+.poppins {
+  font-family: 'Poppins', sans-serif;
 }
 
 .film-data {
