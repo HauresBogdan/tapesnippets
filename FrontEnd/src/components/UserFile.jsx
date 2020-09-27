@@ -183,7 +183,7 @@ function UserFile() {
               <a href={profile && profile.profile.linkedin}>
                 <AiOutlineLinkedin size="2em" />
               </a>
-              <a href={profile && profile.profile.website}>
+              <a href={profile && profile.profile.goodreads}>
                 <AiOutlineBook size="2em" />
               </a>
             </div>
