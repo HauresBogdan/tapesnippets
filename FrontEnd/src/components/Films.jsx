@@ -34,6 +34,8 @@ function Films() {
   const [ratingChanged, setRatingChanged] = useState(true);
   const [yourRatingsOnCurentPage, setYourRatingsOnCurentPage] = useState("");
   const [backendResponse, setBackendResponse] = useState("");
+  const [isConfirmed, setIsConfirmed] = useState("");
+  const isLogged = useSelector((state) => state.isLogged);
 
   //const dev_uri = "http://localhost:5000";
   const prod_uri = "https://tapesnippets.herokuapp.com";
@@ -254,6 +256,52 @@ function Films() {
     setFiltWatched(!filtWatched);
   }
 
+  
+  useEffect(()=> {
+
+    if(isLogged===true) {
+
+      axios({
+        method: "get",
+        url: `${prod_uri}/checkconfirmationstatus`,
+        headers: {
+          authToken: localStorage.getItem("authToken"),
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {          
+          setIsConfirmed(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    
+    }   
+
+  },[isLogged])
+
+  function handleResendEmail() {
+    console.log("working");
+    axios({
+      method: "get",
+      url: `${prod_uri}/resendemail`,
+      headers: {
+        authToken: localStorage.getItem("authToken"),
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        setShowHide("show");
+        setTimeout(function () {
+          setShowHide("hide");
+        }, 1000);
+        setBackendResponse(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   //document.body.style.background = "f9f7f7";
   document.body.style.background = "#2D4A5E";
   
@@ -281,6 +329,10 @@ function Films() {
 
       <div className="films">
         <div className="text-align-center , results">Results: {result}</div>
+
+       {( isConfirmed === false && isLogged === true) &&
+
+        <div className="text-align-center , results">You haven't confirmed your email address.{" "}<button className="button" onClick={handleResendEmail}> Resend email!</button></div>}
 
         <span
           className="watched-icon"

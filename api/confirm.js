@@ -19,7 +19,7 @@ try{
     await user.save((err, updatedObj) => {
       if(err)
       {console.log("error",err)} else
-      {res.send("<h1 style='color:green;text-align:center;'>Your email has been confirmed!!!<h1><br/><h2 style='color:green;text-align:center;'>You can now rate movies, post reviews , like and comment</h2>");}
+      {res.send("<h1 style='color:green;text-align:center;'>Your email has been confirmed!!!<h1><h2 style='color:green;text-align:center;'>You can now rate movies, post reviews , like and comment</h2><h2 style='color:green;text-align:center;'>Return to <a href='https://tapesnippets.com'>TapeSnippets.com</a><h2>");}
     });   
 
   } 

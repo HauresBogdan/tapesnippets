@@ -38,9 +38,7 @@ function UserFile() {
   }
 
   function handleUpdateAll() {
-    //axios call to backend to update with the new  userBio obj
-
-    
+    //axios call to backend to update with the new  userBio obj    
 
     axios({
       method: "post",

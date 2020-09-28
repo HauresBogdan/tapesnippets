@@ -27,6 +27,8 @@ const retrieveuserbyid = require('./api/retrieveuserbyid');
 const watchlaterRemove = require('./api/watchlaterRemove');
 const watchlaterList = require('./api/watchlaterList');
 const profile = require('./api/profile');
+const resendemail = require('./api/resendemail');
+const checkconfirmationstatus = require('./api/checkconfirmationstatus');
 const cors = require('cors');
 const path = require('path');
 
@@ -81,6 +83,8 @@ app.use('/retrieveuserbyid',cors(corsOptions), retrieveuserbyid);
 app.use('/watchlaterRemove',cors(corsOptions), watchlaterRemove);
 app.use('/watchlaterList',cors(corsOptions), watchlaterList);
 app.use('/profile',cors(corsOptions), profile);
+app.use('/resendemail',cors(corsOptions), resendemail);
+app.use('/checkconfirmationstatus',cors(corsOptions), checkconfirmationstatus);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === 'production') {

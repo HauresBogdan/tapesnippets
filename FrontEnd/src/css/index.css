@@ -673,6 +673,10 @@ body {
   font-weight: bold;
 }
 
+.button {
+  border-radius: 0.25em;
+}
+
 .footer-specific {
 
   background-color: #081a26;
