@@ -7,6 +7,8 @@ router.get("/:number", async (req, res) => {
 
 //token that has object with email fild inside
 const token = req.params.number;
+
+//extract info from token
 const tokentranformedinobject = jwt.verify(token, process.env.TOKEN_SECRET);
 const email = tokentranformedinobject.email;
  

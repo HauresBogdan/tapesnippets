@@ -18,6 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {  useDispatch } from "react-redux";
 import { loggedin, loggedout } from "./actions";
 import { Helmet } from "react-helmet";
+import ChangePassWord from "./components/ChangePassWord"
 
 
 
@@ -61,6 +62,7 @@ function App() {
          { /*<Route path="/Trash" component={Trash} />*/}
           <Route path="/SpecificMovie/:movieIdfromParams" component={SpecificMovie} />
           <Route path="/SpecificTsRatings/:movieIdfromParams" component={SpecificTSRatings} />
+          <Route path="/forgotpassword/:tokenFromParam" component={ChangePassWord} />
           <Route path="/Search" component={Search} />
           <Route path="/UserFile" component={UserFile} />
           <Route path="/About" component={About} />

@@ -676,6 +676,15 @@ body {
 .button {
   border-radius: 0.25em;
 }
+.change-password {
+  border: 1px solid  rgb(194, 212, 224);
+  max-width: 20cm;
+  margin: auto;
+  margin-top: 5rem;
+  padding: 0.5cm;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
 
 .footer-specific {
 

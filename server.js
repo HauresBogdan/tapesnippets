@@ -28,7 +28,9 @@ const watchlaterRemove = require('./api/watchlaterRemove');
 const watchlaterList = require('./api/watchlaterList');
 const profile = require('./api/profile');
 const resendemail = require('./api/resendemail');
+const resendforgotpassword = require('./api/resendforgotpassword');
 const checkconfirmationstatus = require('./api/checkconfirmationstatus');
+const registernewpassword = require('./api/registernewpassword');
 const cors = require('cors');
 const path = require('path');
 
@@ -84,7 +86,9 @@ app.use('/watchlaterRemove',cors(corsOptions), watchlaterRemove);
 app.use('/watchlaterList',cors(corsOptions), watchlaterList);
 app.use('/profile',cors(corsOptions), profile);
 app.use('/resendemail',cors(corsOptions), resendemail);
+app.use('/resendforgotpassword',cors(corsOptions), resendforgotpassword);
 app.use('/checkconfirmationstatus',cors(corsOptions), checkconfirmationstatus);
+app.use('/registernewpassword',cors(corsOptions), registernewpassword);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === 'production') {

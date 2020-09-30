@@ -16,6 +16,7 @@ function Login() {
   
   const isLogged = useSelector(state => state.isLogged);
   const dispatch = useDispatch();
+  const [forgotPassword, setForgotPassword] = useState(false);
 
   const [showing, setShowing] = useState({
     inputShow: false,
@@ -89,6 +90,8 @@ function Login() {
         msg: ""
       };
     });
+
+    setForgotPassword(false);
   }
 
   function postData() {
@@ -178,7 +181,48 @@ function Login() {
             color: "mess-collor-red"
           });
         });
+    } else if(showing.actionTitle==="Forgot Password") {
+
+      //if button text is forgot password do this on click
+      axios({
+        method: "post",
+        url: `${prod_uri}/resendforgotpassword`,
+        data: {          
+          email: email          
+        }
+      })
+        .then(function(response) {
+          //console.log(response);
+          if (response.status === 200 && response.data === "Email has been send!") {
+            setMessage({
+              msg: "Email has been send!",
+              color: "mess-collor-green"
+            });
+          }
+        })
+        .catch(function(error) {
+          console.log(error.response);
+
+          setMessage({
+            msg: error.response.data,
+            color: "mess-collor-red"
+          });
+        });
+
     }
+  }
+
+  function handleForgotPassword() {
+    setForgotPassword(true);
+
+    setShowing({
+      ...showing,
+          inputShow: false,
+          actionTitle: "Forgot Password",
+          icon: "fas fa-user lock mr-2",
+          color: "row login-row",
+         
+    });
   }
 
 
@@ -201,7 +245,7 @@ function Login() {
           <strong>{message.msg==="Account created successfully" ? <div>{message.msg}<br/>Confirmation email sent!</div> : message.msg  }</strong>
         </span>
         <br />{" "}
-        {showing.inputShow ? (
+        {(showing.inputShow && forgotPassword===false) ? (
           <Username onChange={takeData} value={login.username} />
         ) : null}
         <div className="input-group">
@@ -220,7 +264,7 @@ function Login() {
           />
         </div>
         <br />
-        <div className="input-group">
+       { forgotPassword===false && <div className="input-group">
           <div className="input-group-prepend">
             <span className="input-group-text">
               <i className="fa fa-key icon" />
@@ -234,7 +278,7 @@ function Login() {
             placeholder="Password"
             value={login.password}
           />
-        </div>
+        </div>}
         <br />
         
         <br />
@@ -256,7 +300,7 @@ function Login() {
             </Link>
           </p>
           <p>            
-            <Link className="forgot-password" to="/Login">Forgot Password?</Link>
+            <Link className="forgot-password" onClick={handleForgotPassword} to="/Login">Forgot Password?</Link>
           </p>
         </div>
       </div>
