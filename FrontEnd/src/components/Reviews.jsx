@@ -9,28 +9,27 @@ import Footer from "./Footer";
 import { Helmet } from "react-helmet";
 
 function Reviews() {
- // const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [allReviewsData, setAllReviewsData] = useState("");
   const [movieData, setMovieData] = useState([]);
   const page = useSelector((state) => state.pageStateFromRedux);
-  
+
   //const dev_uri = "http://localhost:5000";
   const prod_uri = "https://tapesnippets.herokuapp.com";
 
   useEffect(() => {
-    
     axios({
       method: "post",
       url: `${prod_uri}/allreviews`,
       data: {
         pagina: page.activePage,
       },
-      headers: {       
+      headers: {
         "Content-Type": "application/json",
       },
     })
       .then((res) => {
-        //console.log(res.data);
+        console.log(res.data);
         setAllReviewsData(res.data);
       })
       .catch((err) => {
@@ -65,48 +64,39 @@ function Reviews() {
       );
   }, [allReviewsData]);
 
-   /*if(isLogged)
+  /*if(isLogged)
   {
     document.body.style.background = "#476375";
   }*/
 
   return (
-    <> {/*!isLogged ? <Redirect to="/Login" /> :  null*/}
-
+    <>
+      {" "}
+      {/*!isLogged ? <Redirect to="/Login" /> :  null*/}
       <Helmet>
         <title>TapeSnippets - Movie Reviews</title>
         <meta name="description" content="Read and manage movie reviews" />
       </Helmet>
-
-      <div className="reviews-comp">     
-        <br/>
+      <div className="reviews-comp">
+        <br />
         <h1 className="text-align-center">Latest Reviews:</h1>
-        
+
         <Link to="/myReviews">
-        <button className="center-button">Switch to my reviews</button>
-          </Link>
-        <div className="gradient-list">
-          {/*<div className={`${editShowUnshow} edit-review`}>
-            Edit your review:
-            <textarea
-              className="edit-textarea"
-              value={newEditText}
-              onChange={handleEditTextarea}
-              rows={5}
-            />
-            <button className="edit-confirm" onClick={confirmFunction}>
-              Confirm!
-            </button>
-  </div>*/}
+          <button className="center-button">Switch to my reviews</button>
+        </Link>
+        <div className="gradient-list">          
           {allReviewsData && allReviewsData.pageReviews.length > 0 ? (
             allReviewsData.pageReviews.map((item) => (
               <div className="individual-reviews" key={item._id}>
-                {movieData.map(                  
+                {movieData.map(
                   (movieDataItem) =>
-                  // eslint-disable-next-line
+                    // eslint-disable-next-line
                     movieDataItem.id == item.movie_id &&
                     (movieDataItem.poster_path !== null ? (
-                      <Link to={`/SpecificMovie/${item.movie_id}`} key={movieDataItem.id}>
+                      <Link
+                        to={`/SpecificMovie/${item.movie_id}`}
+                        key={movieDataItem.id}
+                      >
                         <span
                           aria-label={movieDataItem.original_title}
                           data-balloon-pos="left"
@@ -125,21 +115,21 @@ function Reviews() {
                         </span>
                       </Link>
                     ) : (
-                      <Link to={`/SpecificMovie/${item.movie_id}`} key={movieDataItem.id}>
+                      <Link
+                        to={`/SpecificMovie/${item.movie_id}`}
+                        key={movieDataItem.id}
+                      >
                         <span
                           aria-label={movieDataItem.original_title}
                           data-balloon-pos="left"
                           data-balloon-length="small"
                         >
                           <img
-                            className="reviews-img"
-                            // value={item.movie_id}
-                            // onMouseDown={sendId}
+                            className="reviews-img"                            
                             src={
                               "https://dummyimage.com/154x231/000/ffffff.jpg&text=" +
                               movieDataItem.original_title
-                            }
-                            //src={"https://picsum.photos/154/231"}
+                            }                            
                             alt="moviePoster"
                           />
                         </span>
@@ -150,7 +140,7 @@ function Reviews() {
                 <div className="review-box2">
                   {movieData.map(
                     (movieDataItem) =>
-                    // eslint-disable-next-line
+                      // eslint-disable-next-line
                       movieDataItem.id == item.movie_id && (
                         <h5
                           key={movieDataItem.id}
@@ -160,9 +150,10 @@ function Reviews() {
                         </h5>
                       )
                   )}
-
+                  {"By: "}
+                  <img height="20px" src={item.user.avatar} alt="avatar" />{" "}
+                  {item.user.name}
                   <p className="actual-text-review">{item.text}</p>
-
                   <div className="gr-like clear-float">
                     <span className="like-button">
                       <GrLike />
@@ -210,32 +201,17 @@ function Reviews() {
                       </div>
                     </div>
                   ))}
-                <br />
-                {/*<div className="edit-delete">
-                  <button
-                    onClick={editReview}
-                    value2={item._id}
-                    className="edit-button"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={deleteReview}
-                    className="delete-button"
-                    value2={item._id}
-                  >
-                    Delete
-                  </button>
-                </div>*/}
+                <br />                
               </div>
             ))
           ) : (
-             <div className="text-align-center">Loading...</div>
+            <div className="text-align-center">Loading...</div>
           )}
 
           {allReviewsData && allReviewsData.pageReviews.length === 0 && (
-            <div  className="text-align-center">
-              There are no reviews in the database.No one wrote any. Be the first to write one.
+            <div className="text-align-center">
+              There are no reviews in the database.No one wrote any. Be the
+              first to write one.
               <br />
               <br />
               <img
@@ -255,8 +231,7 @@ function Reviews() {
           />
         </span>
       </div>
-
-      <Footer/>
+      <Footer />
     </>
   );
 }
