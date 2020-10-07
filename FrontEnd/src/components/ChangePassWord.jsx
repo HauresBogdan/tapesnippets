@@ -7,8 +7,8 @@ import { useState } from "react";
 
 function ChangePassWord() {
 
-const dev_uri = "http://localhost:5000";
-//const prod_uri = "https://tapesnippets.herokuapp.com"; 
+//const dev_uri = "http://localhost:5000";
+const prod_uri = "https://tapesnippets.herokuapp.com"; 
 const { tokenFromParam } = useParams();
 const [newPassword1, setNewPassword1] = useState("");
 const [newPassword2, setNewPassword2] = useState("");
@@ -23,7 +23,7 @@ function handleSubmitNewPassword() {
 
         axios({
         method: "post",
-        url: `${dev_uri}/registernewpassword`,
+        url: `${prod_uri}/registernewpassword`,
         data: {
             newPassword : newPassword2,
             tokenWithEmailSigned : tokenFromParam
@@ -32,6 +32,8 @@ function handleSubmitNewPassword() {
         
         if(res.status===200) {
             setMsg("Passwords was changed successfully!");
+        } else if (res.status===201) {            
+            setMsg(res.data);
         }
         
     }).catch(err => {

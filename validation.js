@@ -83,6 +83,19 @@ const profile = param => {
   });
   return profileSchema.validate(param);
 };
+
+//validation login schema
+const newPassword2 = param => {
+  const newPasswordSchema = Joi.object({    
+    password: Joi.string()
+      .min(8)
+      .max(100)
+      .required()
+  });
+  return newPasswordSchema.validate(param);
+};
+
 module.exports.register = register;
 module.exports.login = login;
+module.exports.newPassword2 = newPassword2;
 module.exports.profile = profile;

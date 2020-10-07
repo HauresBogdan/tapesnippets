@@ -4,6 +4,7 @@ const User = require("../mongooseModels/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+const {newPassword2} = require('../validation');
 
 router.post("/", async (req, res) => {
   const tokenWithEmailSigned = req.body.tokenWithEmailSigned;
@@ -15,6 +16,11 @@ router.post("/", async (req, res) => {
   );
   const email = tokentranformedinobject.email;
   const newPassword = req.body.newPassword;
+
+   //validate data before registering newPass
+   const {error} = await newPassword2({"password" : newPassword});
+   if (error) 
+       return res.status(201).send(error.details[0].message);
 
   try {
     const foundUser = await User.findOne({ email: email });
