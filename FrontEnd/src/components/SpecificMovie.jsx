@@ -12,6 +12,7 @@ import WhoLiked from "./WhoLiked";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
 import { useParams} from "react-router";
+import Pagination from "react-js-pagination";
 
 function SpecificMovie() {
   //const isLogged = useSelector((state) => state.isLogged);
@@ -21,7 +22,7 @@ function SpecificMovie() {
   //dispatch(sendMovieIdforSpecificToRedux(localStorage.getItem("movieId")));
   //const movieIdForSpecific = useSelector((state) => state.movieIdForSpecific);
   const { movieIdfromParams } = useParams();
-   const movieIdForSpecific =  movieIdfromParams;
+  const movieIdForSpecific =  movieIdfromParams;
 
   const [movieReview, setMovieReview] = useState("");
   const [reviewsData, setReviewsData] = useState("");
@@ -39,6 +40,15 @@ function SpecificMovie() {
 
   const [backendResponse, setBackendResponse] = useState("");
   const [showHide, setShowHide] = useState("hide");
+
+  //related to pagination
+  const [totalPages, setTotalPages] = useState(1);
+  const [pageState, setPageState] = useState({ activePage: 1 });
+
+  function handlePageChange(pageNumber) {
+    console.log(`curent specific movies reviews page: ${pageNumber}`);
+    setPageState({ activePage: pageNumber });
+  }
 
   
   
@@ -168,6 +178,7 @@ function SpecificMovie() {
       url: `${prod_uri}/specificmoviereviews`,
       data: {
         movieId: movieIdForSpecific,
+        pagina: pageState.activePage
       },
       headers: {
         //authToken: localStorage.getItem("authToken"),
@@ -175,13 +186,14 @@ function SpecificMovie() {
       },
     })
       .then((res) => {
-        setReviewsData(res.data);
+        setReviewsData(res.data.pageReviews);
+        setTotalPages(res.data.allReviewsNumber/3);
         //console.log("reviesData", res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [movieIdForSpecific, refresher, postComment]);
+  }, [movieIdForSpecific, refresher, postComment, pageState.activePage]);
 
   useEffect(() => {
     document.body.style.backgroundColor = "rgba(12, 37, 54, 1)";
@@ -552,6 +564,18 @@ function SpecificMovie() {
           </ul>
         </div>
       </div>
+      {(reviewsData && reviewsData.length > 4 ) &&
+      <span className="centered-pagination films-pag poppins">
+      <Pagination
+              activePage={pageState.activePage}
+              itemsCountPerPage={1}
+              totalItemsCount={totalPages}
+              pageRangeDisplayed={3}
+              onChange={handlePageChange}
+              //for bootstrap 4 stilyng
+              itemClass="page-item"
+              linkClass="page-link"
+            /></span>}
 
       <Footer />
     </>
