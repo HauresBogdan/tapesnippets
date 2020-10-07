@@ -7,6 +7,7 @@ import People from "./components/People";
 import Ratings from "./components/Ratings";
 import WatchLater from "./components/WatchLater";
 import Reviews from "./components/Reviews";
+import myReviews from "./components/myReviews";
 //import Trash from "./components/Trash";
 import SpecificMovie from "./components/SpecificMovie";
 import SpecificTSRatings from "./components/SpecificTSRatings";
@@ -65,6 +66,7 @@ function App() {
           <Route path="/forgotpassword/:tokenFromParam" component={ChangePassWord} />
           <Route path="/Search" component={Search} />
           <Route path="/UserFile" component={UserFile} />
+          <Route path="/myReviews" component={myReviews} />
           <Route path="/About" component={About} />
         </Switch>
       </Router>

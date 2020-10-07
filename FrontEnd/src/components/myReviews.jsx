@@ -4,28 +4,38 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import MyPagination from "./Pagination";
 import { GrLike } from "react-icons/gr";
+//import { useDispatch } from "react-redux";
+//import { sendMovieIdforSpecificToRedux } from "../actions";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
 
 function Reviews() {
  // const dispatch = useDispatch();
   const [allReviewsData, setAllReviewsData] = useState("");
+  const [newEditText, setNewEditText] = useState("");
+  const [editShowUnshow, setEditShowUnshow] = useState("edit-box-hide");
   const [movieData, setMovieData] = useState([]);
+  const [memoryReview_id, SetMemoryReview_id] = useState(null);
   const page = useSelector((state) => state.pageStateFromRedux);
-  
+  const [refresher, setRefresher] = useState(false);
+  const isLogged = useSelector((state) => state.isLogged);
+
   //const dev_uri = "http://localhost:5000";
   const prod_uri = "https://tapesnippets.herokuapp.com";
 
   useEffect(() => {
-    
+    const token = localStorage.getItem("authToken");
+
     axios({
       method: "post",
-      url: `${prod_uri}/allreviews`,
+      url: `${prod_uri}/reviews`,
       data: {
         pagina: page.activePage,
       },
-      headers: {       
+      headers: {
+        authToken: token,
         "Content-Type": "application/json",
       },
     })
@@ -36,7 +46,7 @@ function Reviews() {
       .catch((err) => {
         console.log(err);
       });
-  }, [page.activePage]);
+  }, [page.activePage, refresher]);
 
   //make axios call to tmdb for that movieId
   useEffect(() => {
@@ -65,13 +75,119 @@ function Reviews() {
       );
   }, [allReviewsData]);
 
-   /*if(isLogged)
+  function editReview(event) {
+    setEditShowUnshow("edit-box-show");
+    window.scrollTo(0, 0);
+
+    const review_id = event.currentTarget.getAttribute("value2");
+    SetMemoryReview_id(review_id);
+
+    axios({
+      method: "post",
+      url: `${prod_uri}/editreview`,
+      data: {
+        reviews_id: review_id,
+        //position: position,
+      },
+      headers: {
+        authToken: localStorage.getItem("authToken"),
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        //1 means 1 deleted
+        //console.log("edit post response:", res.data);
+        setNewEditText(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function handleEditTextarea(event) {
+    setNewEditText(event.target.value);
+  }
+
+  function confirmFunction() {
+    setEditShowUnshow("edit-box-hide");
+
+    axios({
+      method: "post",
+      url: `${prod_uri}/editreview`,
+      data: {
+        reviews_id: memoryReview_id,
+        newText:
+          newEditText +
+          (newEditText.slice(newEditText.length - 8, newEditText.length) ===
+          "(edited)"
+            ? ""
+            : " (edited)"),
+      },
+      headers: {
+        authToken: localStorage.getItem("authToken"),
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        setRefresher(!refresher);
+
+       // console.log("edit post response after confirm:", res.data);
+
+        SetMemoryReview_id(null);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function deleteReview(event) {
+    const response = window.confirm(
+      "Are you sure you want to delete you review!"
+    );
+    //const position = event.currentTarget.getAttribute("value1");
+    const review_id = event.currentTarget.getAttribute("value2");
+
+    if (response === true) {
+      //console.log( position);
+
+      axios({
+        method: "post",
+        url: `${prod_uri}/deletereview`,
+        data: {
+          reviews_id: review_id,
+          //position: position,
+        },
+        headers: {
+          authToken: localStorage.getItem("authToken"),
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          //1 means 1 deleted
+         // console.log("delete post response:", res.data);
+          if (res.data === 1) {
+            setRefresher(!refresher);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
+
+  // function sendId(event) {
+  //   const value = event.currentTarget.getAttribute("value");
+  //   dispatch(sendMovieIdforSpecificToRedux(value));
+  //   localStorage.setItem("movieId", value);
+  // }
+
+  if(isLogged)
   {
     document.body.style.background = "#476375";
-  }*/
+  }
 
   return (
-    <> {/*!isLogged ? <Redirect to="/Login" /> :  null*/}
+    <> {!isLogged ? <Redirect to="/Login" /> :  null}
 
       <Helmet>
         <title>TapeSnippets - Movie Reviews</title>
@@ -80,13 +196,9 @@ function Reviews() {
 
       <div className="reviews-comp">     
         <br/>
-        <h1 className="text-align-center">Latest Reviews:</h1>
-        
-        <Link to="/myReviews">
-        <button className="center-button">Switch to my reviews</button>
-          </Link>
+        <h1 className="text-align-center">My Reviews:</h1>
         <div className="gradient-list">
-          {/*<div className={`${editShowUnshow} edit-review`}>
+          <div className={`${editShowUnshow} edit-review`}>
             Edit your review:
             <textarea
               className="edit-textarea"
@@ -97,7 +209,7 @@ function Reviews() {
             <button className="edit-confirm" onClick={confirmFunction}>
               Confirm!
             </button>
-  </div>*/}
+          </div>
           {allReviewsData && allReviewsData.pageReviews.length > 0 ? (
             allReviewsData.pageReviews.map((item) => (
               <div className="individual-reviews" key={item._id}>
@@ -211,7 +323,7 @@ function Reviews() {
                     </div>
                   ))}
                 <br />
-                {/*<div className="edit-delete">
+                <div className="edit-delete">
                   <button
                     onClick={editReview}
                     value2={item._id}
@@ -226,7 +338,7 @@ function Reviews() {
                   >
                     Delete
                   </button>
-                </div>*/}
+                </div>
               </div>
             ))
           ) : (
@@ -235,7 +347,8 @@ function Reviews() {
 
           {allReviewsData && allReviewsData.pageReviews.length === 0 && (
             <div  className="text-align-center">
-              There are no reviews in the database.No one wrote any. Be the first to write one.
+              You don't have any reviews of your own! Your reviews will apear
+              here as soon as you add them.
               <br />
               <br />
               <img
