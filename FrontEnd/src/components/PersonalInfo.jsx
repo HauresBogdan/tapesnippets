@@ -37,31 +37,6 @@ function PersonalInfo() {
 
   //make axios call to tmdb for that movieId
   useEffect(() => {
-    setRatingsMovieData([]);
-
-    response &&
-      response.ratingFile.length !== 0 &&
-      response.ratingFile.map((rating) =>
-        axios({
-          method: "post",
-          url: `${prod_uri}/specificmovie`,
-          data: {
-            movieId: rating.movie_id,
-          },
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => {
-            setRatingsMovieData((ratingsMovieData) => [...ratingsMovieData, res.data]);
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-      );
-  }, [response]);
-
-  useEffect(() => {
     setReviewsMovieData([]);
 
     response &&
@@ -79,6 +54,32 @@ function PersonalInfo() {
         })
           .then((res) => {
             setReviewsMovieData((reviewsMovieData) => [...reviewsMovieData, res.data]);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      );
+  }, [response]);
+
+  //make axios call to tmdb for that movieId
+  useEffect(() => {
+    setRatingsMovieData([]);
+
+    response &&
+      response.ratingFile.length !== 0 &&
+      response.ratingFile.map((rating) =>
+        axios({
+          method: "post",
+          url: `${prod_uri}/specificmovie`,
+          data: {
+            movieId: rating.movie_id,
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => {
+            setRatingsMovieData((ratingsMovieData) => [...ratingsMovieData, res.data]);
           })
           .catch((err) => {
             console.log(err);
