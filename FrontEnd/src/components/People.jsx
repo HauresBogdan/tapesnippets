@@ -14,6 +14,7 @@ import {
 } from "react-icons/ai";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 function People() {
   //const [allPeople, setAllPeople] = useState([]);
@@ -88,11 +89,11 @@ function People() {
                 <div className="bio-user-card2">
                   <div className="bio-img-area">
                     {profile && (
-                      <img
+                      <Link to={`/PersonalInfo/${profile._id}`}><img
                         className="bio-avatar"
                         src={profile.avatar}
                         alt="avatar"
-                      />
+                      /></Link>
                     )}
                   </div>
                   <div className="bio-bio-area">

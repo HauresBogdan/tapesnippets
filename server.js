@@ -32,8 +32,10 @@ const resendemail = require('./api/resendemail');
 const resendforgotpassword = require('./api/resendforgotpassword');
 const checkconfirmationstatus = require('./api/checkconfirmationstatus');
 const registernewpassword = require('./api/registernewpassword');
+const personalfile = require('./api/personalfile');
 const cors = require('cors');
 const path = require('path');
+
 
 //init express
 const app = express();
@@ -91,6 +93,7 @@ app.use('/resendemail',cors(corsOptions), resendemail);
 app.use('/resendforgotpassword',cors(corsOptions), resendforgotpassword);
 app.use('/checkconfirmationstatus',cors(corsOptions), checkconfirmationstatus);
 app.use('/registernewpassword',cors(corsOptions), registernewpassword);
+app.use('/personalfile',cors(corsOptions), personalfile);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === 'production') {
@@ -106,4 +109,4 @@ if (process.env.NODE_ENV === 'production') {
 
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`server started on ${PORT}`));
+app.listen(PORT, () =>  console.log(`server started on ${PORT}`));

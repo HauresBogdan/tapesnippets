@@ -1141,6 +1141,14 @@ body {
   margin-right: 30px;
 }
 
+.reviews-img-pi {
+  height: 200px;
+}
+
+.ratings-img-pi {
+  height: 150px;
+}
+
 .clear-float {
   clear: both;
 }
@@ -1174,6 +1182,10 @@ body {
 
 .popup-text {
   font-weight: 900;
+}
+
+.bg-lightgray {
+  background: rgb(226, 226, 226);
 }
 
 .review-bg {
@@ -1379,6 +1391,8 @@ body {
 .about-page {
   background-color: white;
 }
+
+
 
 
 

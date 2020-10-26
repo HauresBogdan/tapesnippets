@@ -19,7 +19,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {  useDispatch } from "react-redux";
 import { loggedin, loggedout } from "./actions";
 import { Helmet } from "react-helmet";
-import ChangePassWord from "./components/ChangePassWord"
+import ChangePassWord from "./components/ChangePassWord";
+import PersonalInfo from "./components/PersonalInfo";
 
 
 
@@ -68,6 +69,7 @@ function App() {
           <Route path="/UserFile" component={UserFile} />
           <Route path="/myReviews" component={myReviews} />
           <Route path="/About" component={About} />
+          <Route path="/PersonalInfo/:userIdfromParams" component={PersonalInfo} />
         </Switch>
       </Router>
     </div>
