@@ -9,6 +9,7 @@ import {
   AiOutlineBook,
 } from "react-icons/ai";
 import Footer from "./Footer";
+import { ENV_URL } from "./constants";
 
 
 function UserFile() {
@@ -21,12 +22,10 @@ function UserFile() {
     linkedin: "",
     instagram: "",
   });
-  const [profile, setProfile] = useState("");
-  
+  const [profile, setProfile] = useState(""); 
 
 
-  //const prod_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   function handleChange(event) {
     const { name, value } = event.target;

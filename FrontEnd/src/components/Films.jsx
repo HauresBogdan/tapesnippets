@@ -17,6 +17,7 @@ import { GiSpellBook } from "react-icons/gi";
 import Pagination from "react-js-pagination";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
+import { ENV_URL } from "./constants";
 
 //import { sendPageToRedux } from "../actions";
 
@@ -37,8 +38,7 @@ function Films() {
   const [isConfirmed, setIsConfirmed] = useState("");
   const isLogged = useSelector((state) => state.isLogged);
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
 
   const [pageState, setPageState] = useState({ activePage: 1 });
