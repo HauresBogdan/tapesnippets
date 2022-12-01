@@ -25,7 +25,7 @@ function UserFile() {
   const [profile, setProfile] = useState(""); 
 
 
-  const prod_uri = ENV_URL.DO_DROPLET;
+  const prod_uri = ENV_URL.HEROKU;
 
   function handleChange(event) {
     const { name, value } = event.target;

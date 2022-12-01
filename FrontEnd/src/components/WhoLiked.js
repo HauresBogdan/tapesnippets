@@ -5,7 +5,7 @@ import { ENV_URL } from "./constants";
 function WhoLiked(props) {
   const [usersWhoLiked, setUsersWhoLiked] = useState([]);
 
-  const prod_uri = ENV_URL.DO_DROPLET;
+  const prod_uri = ENV_URL.HEROKU;
 
   useEffect(() => {
     axios({

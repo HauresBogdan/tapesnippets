@@ -22,7 +22,7 @@ function handleSubmitNewPassword() {
 
         axios({
         method: "post",
-        url: `${ENV_URL.DO_DROPLET}/registernewpassword`,
+        url: `${ENV_URL.HEROKU}/registernewpassword`,
         data: {
             newPassword : newPassword2,
             tokenWithEmailSigned : tokenFromParam

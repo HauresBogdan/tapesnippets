@@ -23,7 +23,7 @@ function Reviews() {
   const [refresher, setRefresher] = useState(false);
   const isLogged = useSelector((state) => state.isLogged);
 
-  const prod_uri = ENV_URL.DO_DROPLET;
+  const prod_uri = ENV_URL.HEROKU;
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");

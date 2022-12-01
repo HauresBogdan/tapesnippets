@@ -15,7 +15,7 @@ function PersonalInfo() {
   const [ratingsMovieData, setRatingsMovieData] = useState([]);
   const [reviewsMovieData, setReviewsMovieData] = useState([]);
 
-  const prod_uri = ENV_URL.DO_DROPLET;
+  const prod_uri = ENV_URL.HEROKU;
 
   useEffect(() => {
     axios({

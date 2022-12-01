@@ -39,7 +39,7 @@ function Search() {
   const [backendResponse, setBackendResponse] = useState("");
   const [showHide, setShowHide] = useState("hide");
 
-  const prod_uri = ENV_URL.DO_DROPLET;
+  const prod_uri = ENV_URL.HEROKU;
 
   function saveToRatings(newRating) {
     const token = localStorage.getItem("authToken");

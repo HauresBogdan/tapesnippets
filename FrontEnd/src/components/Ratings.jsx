@@ -23,7 +23,7 @@ function Ratings() {
   const [movieData, setMovieData] = useState("");
   const [pages, setPages] = useState(1);
 
-  const prod_uri = ENV_URL.DO_DROPLET;
+  const prod_uri = ENV_URL.HEROKU;
 
   const ratingsCount = [
     { label: "1🙂", value: 1 },

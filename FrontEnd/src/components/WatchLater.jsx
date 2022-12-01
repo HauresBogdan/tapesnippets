@@ -19,7 +19,7 @@ function WatchLater() {
   const [movieId, setMovieId] = useState("");
   const [refresher, setRefresher] = useState(true);
 
-  const prod_uri = ENV_URL.DO_DROPLET;
+  const prod_uri = ENV_URL.HEROKU;
 
   function removeMovie(event) {
     const value = event.currentTarget.getAttribute("value");

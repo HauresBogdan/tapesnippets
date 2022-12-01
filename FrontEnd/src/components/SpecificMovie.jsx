@@ -51,7 +51,7 @@ function SpecificMovie() {
     setPageState({ activePage: pageNumber });
   }  
   
-  const prod_uri = ENV_URL.DO_DROPLET;
+  const prod_uri = ENV_URL.HEROKU;
 
   function sendCommentToBackend(event) {
     const value = event.target.value;

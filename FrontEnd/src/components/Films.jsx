@@ -38,8 +38,7 @@ function Films() {
   const [isConfirmed, setIsConfirmed] = useState("");
   const isLogged = useSelector((state) => state.isLogged);
 
-  const prod_uri = ENV_URL.DO_DROPLET;
-
+  const prod_uri = ENV_URL.HEROKU;
 
   const [pageState, setPageState] = useState({ activePage: 1 });
 

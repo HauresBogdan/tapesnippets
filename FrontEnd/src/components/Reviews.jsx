@@ -15,7 +15,7 @@ function Reviews() {
   const [movieData, setMovieData] = useState([]);
   const page = useSelector((state) => state.pageStateFromRedux);
 
-  const prod_uri = ENV_URL.DO_DROPLET;
+  const prod_uri = ENV_URL.HEROKU;
 
   useEffect(() => {
     axios({
