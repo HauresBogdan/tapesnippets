@@ -7,6 +7,7 @@ import { GrLike } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
+import { ENV_URL } from "./constants";
 
 function Reviews() {
   // const dispatch = useDispatch();
@@ -14,8 +15,7 @@ function Reviews() {
   const [movieData, setMovieData] = useState([]);
   const page = useSelector((state) => state.pageStateFromRedux);
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   useEffect(() => {
     axios({

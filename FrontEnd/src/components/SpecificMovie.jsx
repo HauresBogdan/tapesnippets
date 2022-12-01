@@ -13,6 +13,7 @@ import Footer from "./Footer";
 import { Helmet } from "react-helmet";
 import { useParams} from "react-router";
 import Pagination from "react-js-pagination";
+import { ENV_URL } from "./constants";
 
 function SpecificMovie() {
   //const isLogged = useSelector((state) => state.isLogged);
@@ -48,12 +49,9 @@ function SpecificMovie() {
   function handlePageChange(pageNumber) {
     console.log(`curent specific movies reviews page: ${pageNumber}`);
     setPageState({ activePage: pageNumber });
-  }
-
+  }  
   
-  
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   function sendCommentToBackend(event) {
     const value = event.target.value;

@@ -15,14 +15,14 @@ import {
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import { ENV_URL } from "./constants";
 
 function People() {
   //const [allPeople, setAllPeople] = useState([]);
   const [response, setResponse] = useState([]);
   const page = useSelector((state) => state.pageStateFromRedux);
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   useEffect(() => {
     axios({

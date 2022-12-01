@@ -40,21 +40,18 @@ function Films() {
   //const dev_uri = "http://localhost:5000";
   const prod_uri = "https://tapesnippets.herokuapp.com";
 
-  //the old pageStateFromRedux you can delete the redux actions and store if no more future pages will use mypagination
-  //curentlly people watchlater and reviews  section still use it
-  //const page = useSelector((state) => state.pageStateFromRedux);
+
   const [pageState, setPageState] = useState({ activePage: 1 });
 
   function handlePageChange(pageNumber) {
-    //console.log(`curent Films page: ${pageNumber}`);
+    
     setPageState({ activePage: pageNumber });
   }
 
   function saveToRatings(newRating) {
     const token = localStorage.getItem("authToken");
 
-    if (token !== "" && token) {
-      //console.log(newRating);
+    if (token !== "" && token) {      
       setRating(newRating);
     } else {
       setShowHide("show");

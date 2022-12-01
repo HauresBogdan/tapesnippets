@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import MyPagination from "./Pagination";
 import Footer from "./Footer";
 import { useParams} from "react-router";
+import { ENV_URL } from "./constants";
 
 function SpecificTSRatings() {
   //const movieId = useSelector((state) => state.movieIdForSpecific);
@@ -13,8 +14,7 @@ function SpecificTSRatings() {
   const [allRatingsOfCurrentMovie, setAllRatingsOfCurrentMovie] = useState("");
   const page = useSelector((state) => state.pageStateFromRedux);
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   // get AllRatingsOfCurrentMovie
   useEffect(() => {

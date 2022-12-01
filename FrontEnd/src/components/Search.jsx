@@ -15,6 +15,7 @@ import "../css/ballon.css";
 
 import { GiSpellBook } from "react-icons/gi";
 import Footer from "./Footer";
+import { ENV_URL } from "./constants";
 
 function Search() {
   const searchTerm = useSelector((state) => state.searchTermFromRedux);
@@ -38,8 +39,7 @@ function Search() {
   const [backendResponse, setBackendResponse] = useState("");
   const [showHide, setShowHide] = useState("hide");
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   function saveToRatings(newRating) {
     const token = localStorage.getItem("authToken");

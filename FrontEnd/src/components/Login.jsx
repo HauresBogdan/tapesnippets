@@ -5,14 +5,13 @@ import axios from "axios";
 import {useSelector, useDispatch } from 'react-redux';
 import { loggedin,  } from '../actions';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ENV_URL } from "./constants";
 
 
 function Login() {
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
-
   
+  const prod_uri = ENV_URL.DO_DROPLET;
   
   const isLogged = useSelector(state => state.isLogged);
   const dispatch = useDispatch();

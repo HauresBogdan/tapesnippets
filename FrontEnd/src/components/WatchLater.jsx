@@ -9,6 +9,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
+import { ENV_URL } from "./constants";
 
 function WatchLater() {
   //const dispatch = useDispatch();
@@ -18,8 +19,7 @@ function WatchLater() {
   const [movieId, setMovieId] = useState("");
   const [refresher, setRefresher] = useState(true);
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   function removeMovie(event) {
     const value = event.currentTarget.getAttribute("value");

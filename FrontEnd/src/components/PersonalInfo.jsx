@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ENV_URL } from "./constants";
 
 function PersonalInfo() {
   const { userIdfromParams } = useParams();
@@ -14,8 +15,7 @@ function PersonalInfo() {
   const [ratingsMovieData, setRatingsMovieData] = useState([]);
   const [reviewsMovieData, setReviewsMovieData] = useState([]);
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   useEffect(() => {
     axios({

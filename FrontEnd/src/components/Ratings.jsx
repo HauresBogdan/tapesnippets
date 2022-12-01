@@ -10,6 +10,7 @@ import Pagination from "react-js-pagination";
 import "../css/ballon.css";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
+import { ENV_URL } from "./constants";
 
 function Ratings() {
   const [pageState, setPageState] = useState({ activePage: 1 });
@@ -22,8 +23,7 @@ function Ratings() {
   const [movieData, setMovieData] = useState("");
   const [pages, setPages] = useState(1);
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   const ratingsCount = [
     { label: "1🙂", value: 1 },

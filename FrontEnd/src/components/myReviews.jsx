@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
+import { ENV_URL } from "./constants";
 
 function Reviews() {
  // const dispatch = useDispatch();
@@ -22,8 +23,7 @@ function Reviews() {
   const [refresher, setRefresher] = useState(false);
   const isLogged = useSelector((state) => state.isLogged);
 
-  //const dev_uri = "http://localhost:5000";
-  const prod_uri = "https://tapesnippets.herokuapp.com";
+  const prod_uri = ENV_URL.DO_DROPLET;
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
