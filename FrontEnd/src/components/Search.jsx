@@ -39,7 +39,7 @@ function Search() {
   const [backendResponse, setBackendResponse] = useState("");
   const [showHide, setShowHide] = useState("hide");
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   function saveToRatings(newRating) {
     const token = localStorage.getItem("authToken");
@@ -140,6 +140,7 @@ function Search() {
             console.log(err);
           });
     }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieList, ratingChanged]);
 
   function saveToRatings2(event) {
@@ -234,6 +235,7 @@ function Search() {
     } else {
       setLoadingMsg(true);
     }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, page, searchTerm]);
 
   const [filtWatched, setFiltWatched] = useState(true);

@@ -5,7 +5,7 @@ import { ENV_URL } from "./constants";
 function WhoLiked(props) {
   const [usersWhoLiked, setUsersWhoLiked] = useState([]);
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   useEffect(() => {
     axios({
@@ -24,6 +24,7 @@ function WhoLiked(props) {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.whoLiked]);
 
   return (

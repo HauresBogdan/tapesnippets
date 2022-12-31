@@ -19,12 +19,10 @@ function WatchLater() {
   const [movieId, setMovieId] = useState("");
   const [refresher, setRefresher] = useState(true);
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   function removeMovie(event) {
-    const value = event.currentTarget.getAttribute("value");
-    //console.log(value);
-    //console.log("merge");
+    const value = event.currentTarget.getAttribute("value");  
     setMovieId(value);
   }
 
@@ -36,32 +34,29 @@ function WatchLater() {
         authToken: localStorage.getItem("authToken"),
       },
     })
-      .then((res) => {
-       // console.log(res.data);
+      .then((res) => {      
         setWatchLaterList(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresher]);
 
   function chunkArray(myArray, chunk_size) {
-    var index = 0;
-    //var page = 1;
+    var index = 0;   
     var arrayLength = myArray.length;
     var tempArray = [];
 
     for (index = 0; index < arrayLength; index += chunk_size) {
-      const myChunk = myArray.slice(index, index + chunk_size);
-      // Do something if you want with the group
+      const myChunk = myArray.slice(index, index + chunk_size);     
       tempArray.push(myChunk);
     }
 
     return tempArray;
   }
   // Split in group of 20 items per page
-  const watchListObjSplitedByPages = chunkArray(watchLaterList, 20);
-  //console.log(watchListObjSplitedByPages);
+  const watchListObjSplitedByPages = chunkArray(watchLaterList, 20); 
 
   //removes movie from watchlist
   useEffect(() => {
@@ -90,12 +85,6 @@ function WatchLater() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
-  //send MovieId To SpecificMovie Component
-  // function sendId(event) {
-  //   const value = event.currentTarget.getAttribute("value");
-  //   dispatch(sendMovieIdforSpecificToRedux(value));
-  //   localStorage.setItem("movieId", value);
-  // }
 
   document.body.style.backgroundColor = "#D7E0E6";
 

@@ -23,7 +23,7 @@ function Ratings() {
   const [movieData, setMovieData] = useState("");
   const [pages, setPages] = useState(1);
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   const ratingsCount = [
     { label: "1🙂", value: 1 },
@@ -78,6 +78,7 @@ function Ratings() {
         res.data.pages[0] && setPages(res.data.pages[0].totalFields);
       })
       .catch((err) => console.log(err));
+      //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [descending, minCount, pageState.activePage]);
 
   //make axios call to tmdb for that movieId
@@ -105,6 +106,7 @@ function Ratings() {
             console.log(err);
           })
       );
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ratings]);
 
   // //send MovieId To SpecificMovie Component

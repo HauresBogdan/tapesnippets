@@ -15,7 +15,7 @@ function PersonalInfo() {
   const [ratingsMovieData, setRatingsMovieData] = useState([]);
   const [reviewsMovieData, setReviewsMovieData] = useState([]);
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   useEffect(() => {
     axios({
@@ -29,10 +29,10 @@ function PersonalInfo() {
       },
     })
       .then((res) => {
-        //console.log(res.data);
         setResponse(res.data);
       })
       .catch((err) => console.log(err));
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userIdfromParams]);
 
   //make axios call to tmdb for that movieId
@@ -59,6 +59,7 @@ function PersonalInfo() {
             console.log(err);
           })
       );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
   //make axios call to tmdb for that movieId
@@ -85,6 +86,7 @@ function PersonalInfo() {
             console.log(err);
           })
       );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
   return (

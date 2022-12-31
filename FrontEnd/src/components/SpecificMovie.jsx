@@ -51,7 +51,7 @@ function SpecificMovie() {
     setPageState({ activePage: pageNumber });
   }  
   
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   function sendCommentToBackend(event) {
     const value = event.target.value;
@@ -108,7 +108,7 @@ function SpecificMovie() {
         });
     }
 
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submitedComment]);
 
   function handleTextarea(event) {
@@ -167,6 +167,7 @@ function SpecificMovie() {
       .catch((err) => {
         console.log(err);
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieIdForSpecific]);
 
   //make axios call to backend for retrieving reviews of that movie from my database
@@ -191,6 +192,7 @@ function SpecificMovie() {
       .catch((err) => {
         console.log(err);
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieIdForSpecific, refresher, postComment, pageState.activePage]);
 
   useEffect(() => {
@@ -217,6 +219,7 @@ function SpecificMovie() {
           console.log(err);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieData]);
 
   function addLike(event) {

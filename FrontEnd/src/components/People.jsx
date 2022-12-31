@@ -22,7 +22,7 @@ function People() {
   const [response, setResponse] = useState([]);
   const page = useSelector((state) => state.pageStateFromRedux);
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   useEffect(() => {
     axios({
@@ -44,25 +44,9 @@ function People() {
       .catch((err) => {
         console.log(err);
       });
+      //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page.activePage]);
-
-  /*function chunkArray(myArray, chunk_size) {
-    var index = 0;
-    //var page = 1;
-    var arrayLength = myArray.length;
-    var tempArray = [];
-
-    for (index = 0; index < arrayLength; index += chunk_size) {
-      const myChunk = myArray.slice(index, index + chunk_size);
-      // Do something if you want with the group
-      tempArray.push(myChunk);
-    }
-
-    return tempArray;
-  }
-  // Split in group of 20 items per page
-  const peopleObjSplitedByPages = chunkArray(allPeople, 10);
-  console.log(peopleObjSplitedByPages);*/
+  
 
   document.body.style.backgroundColor = "white";
 

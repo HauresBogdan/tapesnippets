@@ -14,7 +14,7 @@ function SpecificTSRatings() {
   const [allRatingsOfCurrentMovie, setAllRatingsOfCurrentMovie] = useState("");
   const page = useSelector((state) => state.pageStateFromRedux);
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   // get AllRatingsOfCurrentMovie
   useEffect(() => {
@@ -32,14 +32,14 @@ function SpecificTSRatings() {
           "Content-Type": "application/json",
         },
       })
-        .then((res) => {
-          //console.log("AllRatingsOfCurrentMovie", res.data);
+        .then((res) => {          
           setAllRatingsOfCurrentMovie(res.data);
         })
         .catch((err) => {
           console.log(err);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
   function chunkArray(myArray, chunk_size) {
@@ -61,8 +61,7 @@ function SpecificTSRatings() {
     allRatingsOfCurrentMovie,
     5
   );
-  //console.log(allRatingsOfCurrentMovieSplitedByPages);
-
+  
   document.body.style.backgroundColor = "#D7E0E6";
 
   return (

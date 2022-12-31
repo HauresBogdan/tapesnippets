@@ -23,7 +23,7 @@ function Reviews() {
   const [refresher, setRefresher] = useState(false);
   const isLogged = useSelector((state) => state.isLogged);
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -46,6 +46,7 @@ function Reviews() {
       .catch((err) => {
         console.log(err);
       });
+      //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page.activePage, refresher]);
 
   //make axios call to tmdb for that movieId
@@ -73,6 +74,7 @@ function Reviews() {
             console.log(err);
           })
       );
+      //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allReviewsData]);
 
   function editReview(event) {
@@ -175,11 +177,6 @@ function Reviews() {
     }
   }
 
-  // function sendId(event) {
-  //   const value = event.currentTarget.getAttribute("value");
-  //   dispatch(sendMovieIdforSpecificToRedux(value));
-  //   localStorage.setItem("movieId", value);
-  // }
 
   if(isLogged)
   {

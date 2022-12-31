@@ -38,7 +38,7 @@ function Films() {
   const [isConfirmed, setIsConfirmed] = useState("");
   const isLogged = useSelector((state) => state.isLogged);
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   const [pageState, setPageState] = useState({ activePage: 1 });
 
@@ -145,6 +145,7 @@ function Films() {
             console.log(err);
           });
     }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieList, ratingChanged]);
 
   function saveToRatings2(event) {
@@ -244,6 +245,7 @@ function Films() {
     } else {
       setLoadingMsg(true);
     }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, pageState.activePage]);
 
   const [filtWatched, setFiltWatched] = useState(true);
@@ -273,7 +275,7 @@ function Films() {
         });
     
     }   
-
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   },[isLogged])
 
   function handleResendEmail() {

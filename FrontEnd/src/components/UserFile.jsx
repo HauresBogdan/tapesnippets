@@ -25,7 +25,7 @@ function UserFile() {
   const [profile, setProfile] = useState(""); 
 
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -75,6 +75,7 @@ function UserFile() {
       .catch((err) => {
         console.log(err);
       });
+      //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   document.body.style.backgroundColor = "white";

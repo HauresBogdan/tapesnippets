@@ -11,7 +11,7 @@ import { ENV_URL } from "./constants";
 function Login() {
 
   
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
   
   const isLogged = useSelector(state => state.isLogged);
   const dispatch = useDispatch();

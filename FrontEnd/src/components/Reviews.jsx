@@ -15,7 +15,7 @@ function Reviews() {
   const [movieData, setMovieData] = useState([]);
   const page = useSelector((state) => state.pageStateFromRedux);
 
-  const prod_uri = ENV_URL.HEROKU;
+  const prod_uri = ENV_URL.LOCALHOST;
 
   useEffect(() => {
     axios({
@@ -35,6 +35,7 @@ function Reviews() {
       .catch((err) => {
         console.log(err);
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page.activePage]);
 
   //make axios call to tmdb for that movieId
@@ -62,17 +63,13 @@ function Reviews() {
             console.log(err);
           })
       );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allReviewsData]);
 
-  /*if(isLogged)
-  {
-    document.body.style.background = "#476375";
-  }*/
 
   return (
     <>
-      {" "}
-      {/*!isLogged ? <Redirect to="/Login" /> :  null*/}
+      {" "}      
       <Helmet>
         <title>TapeSnippets - Movie Reviews</title>
         <meta name="description" content="Read and manage movie reviews" />
