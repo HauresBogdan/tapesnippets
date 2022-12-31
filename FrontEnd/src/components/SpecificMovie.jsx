@@ -51,7 +51,7 @@ function SpecificMovie() {
     setPageState({ activePage: pageNumber });
   }  
   
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
 
   function sendCommentToBackend(event) {
     const value = event.target.value;

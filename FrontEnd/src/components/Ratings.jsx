@@ -23,7 +23,7 @@ function Ratings() {
   const [movieData, setMovieData] = useState("");
   const [pages, setPages] = useState(1);
 
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
 
   const ratingsCount = [
     { label: "1🙂", value: 1 },

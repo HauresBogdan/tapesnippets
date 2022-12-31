@@ -15,7 +15,7 @@ function Reviews() {
   const [movieData, setMovieData] = useState([]);
   const page = useSelector((state) => state.pageStateFromRedux);
 
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
 
   useEffect(() => {
     axios({

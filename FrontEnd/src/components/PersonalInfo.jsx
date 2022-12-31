@@ -15,7 +15,7 @@ function PersonalInfo() {
   const [ratingsMovieData, setRatingsMovieData] = useState([]);
   const [reviewsMovieData, setReviewsMovieData] = useState([]);
 
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
 
   useEffect(() => {
     axios({

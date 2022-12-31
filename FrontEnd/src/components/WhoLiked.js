@@ -5,7 +5,7 @@ import { ENV_URL } from "./constants";
 function WhoLiked(props) {
   const [usersWhoLiked, setUsersWhoLiked] = useState([]);
 
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
 
   useEffect(() => {
     axios({

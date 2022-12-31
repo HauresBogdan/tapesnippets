@@ -11,7 +11,7 @@ import { ENV_URL } from "./constants";
 function Login() {
 
   
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
   
   const isLogged = useSelector(state => state.isLogged);
   const dispatch = useDispatch();

@@ -38,7 +38,7 @@ function Films() {
   const [isConfirmed, setIsConfirmed] = useState("");
   const isLogged = useSelector((state) => state.isLogged);
 
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
 
   const [pageState, setPageState] = useState({ activePage: 1 });
 

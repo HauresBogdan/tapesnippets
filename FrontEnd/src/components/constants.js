@@ -2,6 +2,7 @@ const ENV_URL = {
   HEROKU: "https://tapesnippets.herokuapp.com",
   LOCALHOST: "http://localhost:5000",
   DO_DROPLET: "143.198.112.63",
+  ON_RENDER: "https://tapesnippets.onrender.com",
 };
 
 const FE_URL = {

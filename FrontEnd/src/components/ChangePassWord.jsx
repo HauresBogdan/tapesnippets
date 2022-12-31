@@ -22,7 +22,7 @@ function handleSubmitNewPassword() {
 
         axios({
         method: "post",
-        url: `${ENV_URL.LOCALHOST}/registernewpassword`,
+        url: `${ENV_URL.ON_RENDER}/registernewpassword`,
         data: {
             newPassword : newPassword2,
             tokenWithEmailSigned : tokenFromParam

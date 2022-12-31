@@ -39,7 +39,7 @@ function Search() {
   const [backendResponse, setBackendResponse] = useState("");
   const [showHide, setShowHide] = useState("hide");
 
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
 
   function saveToRatings(newRating) {
     const token = localStorage.getItem("authToken");

@@ -23,7 +23,7 @@ function Reviews() {
   const [refresher, setRefresher] = useState(false);
   const isLogged = useSelector((state) => state.isLogged);
 
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");

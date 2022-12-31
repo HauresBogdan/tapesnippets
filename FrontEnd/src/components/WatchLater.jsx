@@ -19,7 +19,7 @@ function WatchLater() {
   const [movieId, setMovieId] = useState("");
   const [refresher, setRefresher] = useState(true);
 
-  const prod_uri = ENV_URL.LOCALHOST;
+  const prod_uri = ENV_URL.ON_RENDER;
 
   function removeMovie(event) {
     const value = event.currentTarget.getAttribute("value");  
