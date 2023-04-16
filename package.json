@@ -8,7 +8,7 @@
     "server": "nodemon server",
     "client": "npm start --prefix FrontEnd",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build --prefix FrontEnd"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm install --prefix FrontEnd && npm run build --prefix FrontEnd"
   },
   "author": "Haures Bogdan",
   "license": "ISC",
